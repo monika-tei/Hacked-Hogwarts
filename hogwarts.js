@@ -157,33 +157,32 @@ function grabHouse(house) {
   return house;
 }
 
-// To Do: Bloody Status!
+// To Do: BLOOD ISSUES:
 function grabBlood(lastname, bloodStatus) {
   //define 2 arrays and store the provided data
   let halfBloodFamily = bloodStatus.half;
   let pureBloodFamily = bloodStatus.pure;
+  let bothBloods = pureBloodFamily.includes(lastname) && halfBloodFamily.includes(lastname);
 
   // edge cases with no lastname or no blood type
-
-  if (pureBloodFamily.includes(lastname)) {
-    bloodStatus = "Of Pure Blood";
-  } else if (halfBloodFamily.includes(lastname)) {
+  // edge cases with double blood
+  // 1. Abbott is both pure and half
+  // 2. Potter is both pure and half
+  // 3. Bullstrode is both pure and half
+  if (halfBloodFamily.includes(lastname) || bothBloods) {
     bloodStatus = "Of Half Blood";
+  } else if (pureBloodFamily.includes(lastname)) {
+    bloodStatus = "Of Pure Blood";
   } else if (!lastname || !bloodStatus) {
     bloodStatus = "Blood Unknown";
   } else {
-    bloodStatus = "muggle born mudblood!";
+    bloodStatus = "Muggle-born mudblood!";
   }
 
   console.log(`Blood is: ${bloodStatus}`);
   console.log(" ");
   return bloodStatus;
 }
-
-//BLOOD ISSUES:
-// 1. Abbott is both pure and half
-// 2. Potter is both pure and half
-// 3. Bullstrode is both pure and half
 
 // TO DO: very basic HTML with preliminary list view from animal base, just so I can view thing
 
