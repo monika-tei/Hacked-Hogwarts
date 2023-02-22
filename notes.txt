@@ -1,0 +1,30 @@
+Grab the JSON
+- fetching the data
+- forEach'ing - each array element
+
+
+
+Create new objects with cleaned data from JSON and store in global array;
+
+- Design student object that contains the following: ++
+    - First name
+    - Last name
+    - Middle name (if any)
+    - Nickname (if any)
+    - Image
+    - House
+
+- Read each JSON-object, and create a new Student object
+
+- Store all the created objects in a global array ++
+
+3. use console.table to show all objects
+
+4. Split into parts
+5. Capitalization ++
+6. Hyphen situation
+
+
+// To DO: assigning things to the student (that is displayed)
+// here we will be populating the clone template, inserting textContent and so on.
+// still need to build preliminary HTML for it
