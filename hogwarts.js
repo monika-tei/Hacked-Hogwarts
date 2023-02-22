@@ -34,7 +34,7 @@ function start() {
 
 // TO DO: event listeners for buttons: filter, Sort, Search, hacking
 function addEventListeners() {
-  console.log("will activate events");
+  // console.log("will activate events");
 }
 
 // Load JSON files: student list and student bloodlines
@@ -43,8 +43,6 @@ async function grabJSON() {
     // When loaded, prepare data objects
     handleStudentObjects(jsonData[0], jsonData[1]);
   });
-
-  // allStudents = jsonData.map(prepStudentObject);
 }
 
 // An important function to handle the data from fetching. elements are the objects we import from json
@@ -58,7 +56,7 @@ function handleStudentObjects(students, bloodStatus) {
     student.middlename = grabMiddleName(element.fullname);
     student.nickname = grabNickName(element.fullname);
     student.house = grabHouse(element.house);
-    student.bloodStatus = grabBloodStatus(student.lastname, bloodStatus);
+    student.bloodStatus = grabBlood(student.lastname, bloodStatus);
     student.prefect = false;
     student.inqSpy = false;
     // To Do: image
@@ -73,7 +71,6 @@ function handleStudentObjects(students, bloodStatus) {
 // TO DO: Create the necessary functions to format the names
 function grabFirstName(fullname) {
   let firstname = fullname.trim();
-  console.log(`full name: ${fullname}`);
   // if fullname contains a space, first name will be the first index
   if (fullname.includes(" ")) {
     firstname = firstname.substring(0, firstname.indexOf(" "));
@@ -84,14 +81,15 @@ function grabFirstName(fullname) {
   }
   //Test
   console.log(`First name: ${firstname}`);
+  // console.log(`full name: ${fullname}`);
+
   return firstname;
 }
 
-// Wednesday To Do: deal with the hyphen! Justin Finch-fletchley situation
+//To Do: deal with the hyphen! Justin Finch-fletchley situation
 function grabLastName(fullname) {
   let lastname = fullname.trim();
   //Look for the last space
-
   let lastSpace = lastname.lastIndexOf(" ") + 1;
   lastname = lastname.substring(lastSpace);
   lastname = lastname.charAt(0).toUpperCase() + lastname.slice(1).toLowerCase();
@@ -99,7 +97,12 @@ function grabLastName(fullname) {
   if (lastname === "Leanne") {
     lastname = "";
   }
-
+  //if contains -, capitalize first letter after hyphen
+  if (fullname.includes("-")) {
+    let twolastNames = lastname.split("-");
+    twolastNames[1] = twolastNames[1].substring(0, 1).toUpperCase() + twolastNames[1].slice(1).toLowerCase();
+    lastname = twolastNames.join("-");
+  }
   //Test
   console.log(`Last name: ${lastname}`);
   return lastname;
@@ -125,7 +128,7 @@ function grabMiddleName(fullname) {
   }
 
   //Test
-  console.log(`Middle name: ${middlename}`);
+  // console.log(`Middle name: ${middlename}`);
   return middlename;
 }
 
@@ -133,15 +136,15 @@ function grabNickName(fullname) {
   let nickname = fullname.trim();
   nickname = nickname.split(" ");
   //Again, looking for second name
-  if (fullname.includes(' "')) {
+  if (fullname.includes('"')) {
+    //[1] because it indicates location of the nickname in fullname ;
     nickname = nickname[1];
-    nickname = nickname.charAt(0).toUpperCase() + nickname.slice(1).toLowerCase();
   } else {
     nickname = "";
   }
 
   //Test
-  console.log(`Nickname: ${nickname}`);
+  // console.log(`Nickname: ${nickname}`);
   return nickname;
 }
 
@@ -149,14 +152,41 @@ function grabHouse(house) {
   house = house.trim();
   house = house.charAt(0).toUpperCase() + house.slice(1).toLowerCase();
 
-  console.log(`House: ${house}`);
+  // console.log(`House: ${house}`);
+
   return house;
 }
 
-function grabBloodStatus(lastname, bloodStatus) {
-  console.log("-");
+// To Do: Bloody Status!
+function grabBlood(lastname, bloodStatus) {
+  //define 2 arrays and store the provided data
+  let halfBloodFamily = bloodStatus.half;
+  let pureBloodFamily = bloodStatus.pure;
+
+  // edge cases with no lastname or no blood type
+
+  if (pureBloodFamily.includes(lastname)) {
+    bloodStatus = "Of Pure Blood";
+  } else if (halfBloodFamily.includes(lastname)) {
+    bloodStatus = "Of Half Blood";
+  } else if (!lastname || !bloodStatus) {
+    bloodStatus = "Blood Unknown";
+  } else {
+    bloodStatus = "muggle born mudblood!";
+  }
+
+  console.log(`Blood is: ${bloodStatus}`);
+  console.log(" ");
+  return bloodStatus;
 }
 
-// TO DO: Build the HTML with preliminary list view from animal base, just so I can view things
+//BLOOD ISSUES:
+// 1. Abbott is both pure and half
+// 2. Potter is both pure and half
+// 3. Bullstrode is both pure and half
+
+// TO DO: very basic HTML with preliminary list view from animal base, just so I can view thing
+
 // TO DO: Create the template and make a function to populate that template with
+
 // Populating the clone template, inserting textContent and so on.
