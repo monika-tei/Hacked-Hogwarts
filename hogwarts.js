@@ -15,14 +15,14 @@ const Student = {
   inqSpy: false,
 };
 
-// Global variables for filtering and sorting
+// Preliminary variables for filtering and sorting
 const settings = {
   filter: "all",
   sortBy: "firstname",
   sortDir: "asc",
 };
 
-// A very big array that stores each student as  an object
+// A very big array that stores each student as an object
 let allStudents = [];
 
 // Start
@@ -34,7 +34,7 @@ function start() {
 
 // TO DO: event listeners for buttons: filter, Sort, Search, hacking
 function addEventListeners() {
-  // console.log("will activate events");
+  // console.log("will activate events"); probably buttons aha
 }
 
 // Load JSON files: student list and student bloodlines
@@ -68,7 +68,6 @@ function handleStudentObjects(students, bloodStatus) {
   // builList(); build new list (will make sense when I have the filters and sorting ready)
 }
 
-// TO DO: Create the necessary functions to format the names
 function grabFirstName(fullname) {
   let firstname = fullname.trim();
   // if fullname contains a space, first name will be the first index
@@ -86,7 +85,6 @@ function grabFirstName(fullname) {
   return firstname;
 }
 
-//To Do: deal with the hyphen! Justin Finch-fletchley situation
 function grabLastName(fullname) {
   let lastname = fullname.trim();
   //Look for the last space
@@ -157,7 +155,6 @@ function grabHouse(house) {
   return house;
 }
 
-// To Do: BLOOD ISSUES:
 function grabBlood(lastname, bloodStatus) {
   //define 2 arrays and store the provided data
   let halfBloodFamily = bloodStatus.half;

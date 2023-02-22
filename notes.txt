@@ -1,29 +1,19 @@
-Grab the JSON
-- fetching the data
-- forEach'ing - each array element
+Some To Do for my next session:
 
 
+1. Read through design hogwarts data assignment
+2. Sketch out the interface
+    - it should help me to build the HTML structure
+    - What are we going to filter?
+    - What are we going to sort?
+    - What can we click on?
+3. Build the HTML structure
+4. Modal view - sketching
+4.1 Modal view - build it
+4.2 Modal view - populate it
 
-Create new objects with cleaned data from JSON and store in global array;
 
-- Design student object that contains the following: ++
-    - First name
-    - Last name
-    - Middle name (if any)
-    - Nickname (if any)
-    - Image
-    - House
-
-- Read each JSON-object, and create a new Student object
-
-- Store all the created objects in a global array ++
-
-3. use console.table to show all objects
-
-4. Split into parts
-5. Capitalization ++
-6. Hyphen situation
-
+Then:
 
 // To DO: assigning things to the student (that is displayed)
 // here we will be populating the clone template, inserting textContent and so on.
