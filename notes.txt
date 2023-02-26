@@ -18,3 +18,17 @@ Then:
 // To DO: assigning things to the student (that is displayed)
 // here we will be populating the clone template, inserting textContent and so on.
 // still need to build preliminary HTML for it
+
+Font Families to import
+
+Bluu Next - OTF downloaded
+
+https://fonts.google.com/specimen/Libre+Baskerville?preview.text=Slytherin,%20Gryffindor,%20Ravenclaw,%20Hufflepuff&preview.text_type=custom
+
+https://fonts.google.com/specimen/Bitter?preview.text=Slytherin,%20Gryffindor,%20Ravenclaw,%20Hufflepuff&preview.text_type=custom
+
+https://fonts.google.com/specimen/Cormorant+Garamond?preview.text=Slytherin,%20Gryffindor,%20Ravenclaw,%20Hufflepuff&preview.text_type=custom
+
+Potentially Hacked font families
+
+https://fonts.google.com/specimen/Rubik+Iso?preview.text=Slytherin&preview.text_type=custom
