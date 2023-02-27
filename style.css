@@ -18,6 +18,17 @@
   background-color: lavender;
 }
 
+h1 {
+  font-family: var(--header-gothic-font);
+}
 thead {
   font-family: var(--header-gothic-font);
+}
+
+td[data-field="prefect"]::after {
+  content: url(img/prefect.png);
+}
+
+td[data-field="inquisitor"]::after {
+  content: url(img/inq-squad.png);
 }
