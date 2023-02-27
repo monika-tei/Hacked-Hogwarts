@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
+
+:root {
+  --header-gothic-font: Bluu next;
+  --text-cormorant-leaner: "Cormorant Garamond", serif;
+  --text-baskerville-bolder: "Libre Baskerville", serif;
+  --header-hacked-rubik-burned: "Rubik Burned", cursive;
+  --header-hacked-rubik-glitch: "Rubik Glitch", cursive;
+}
+
+* {
+  background-color: lavender;
+}
+
+thead {
+  font-family: var(--header-gothic-font);
+}
