@@ -181,8 +181,16 @@ function grabBlood(lastname, bloodStatus) {
   return bloodStatus;
 }
 
-// TO DO: very basic HTML with preliminary list view from animal base, just so I can view thing
+// TO DO: Clear the template area
 
-// TO DO: Create the template and make a function to populate that template with
+function displayList() {
+  //clear the list
+  //build a new list
+}
 
-// Populating the clone template, inserting textContent and so on.
+// TO DO: Populate the template & Inject it into HTML
+function displayWizard() {
+  //create clone
+  //set clone data
+  //inject to parent
+}
