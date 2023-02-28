@@ -1,15 +1,6 @@
 To Do's for my next session:
 
-
-1. Read through design hogwarts data assignment++
-2. Sketch out the interface
-    - it should help me to build the HTML structure ++
-    - What are we going to filter? ++
-    - What are we going to sort? ++
-    - What can we click on?
-3. Build the HTML structure ++ first iteration
-3.1 Build the preliminary fetched template into the list view. No styling yet, nothing fancy here;
-
+- Create functions for moving  content to template and displaying on a list
 4. Modal view - sketching
 4.1 Modal view - build it
 4.2 Modal view - populate it
