@@ -1,22 +1,19 @@
 To Do's for my next session:
 
-- Create functions for moving  content to template and displaying on a list
-4. Modal view - sketching
-4.1 Modal view - build it
-4.2 Modal view - populate it
+Let's begin working on the filters
+- watch animal base video again to remember how to draw activity diagram
+- hardcode one filter
+- adjust to all 5 filters
+- probably will need a buildList() function 
 
 
-Then:
 
-// To DO: assigning things to the student (that is displayed)
-// here we will be populating the clone template, inserting textContent and so on.
-// still need to build preliminary HTML for it
+
+
 
 Font Families to import
 
 Bluu Next - OTF downloaded
-
-
 https://fonts.google.com/specimen/Libre+Baskerville?preview.text=Slytherin,%20Gryffindor,%20Ravenclaw,%20Hufflepuff&preview.text_type=custom
 
 https://fonts.google.com/specimen/Bitter?preview.text=Slytherin,%20Gryffindor,%20Ravenclaw,%20Hufflepuff&preview.text_type=custom

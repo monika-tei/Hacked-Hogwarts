@@ -62,10 +62,10 @@ function handleStudentObjects(students, bloodStatus) {
     // To Do: image
     // student.picture = grabProfilePicture(element.fullname.trim());
 
-    allStudents.push.Student;
+    //CHANGES MADE HERE, was .push.Student;
+    allStudents.push(student);
   });
-  // displayList(allStudents);
-  // builList(); build new list (will make sense when I have the filters and sorting ready)
+  displayList(allStudents);
 }
 
 function grabFirstName(fullname) {
@@ -78,10 +78,8 @@ function grabFirstName(fullname) {
     // if fullname has only a name as in with no spaces
     firstname = firstname;
   }
-  //Test
-  console.log(`First name: ${firstname}`);
-  // console.log(`full name: ${fullname}`);
 
+  // console.log(`First name: ${firstname}`);
   return firstname;
 }
 
@@ -101,8 +99,8 @@ function grabLastName(fullname) {
     twolastNames[1] = twolastNames[1].substring(0, 1).toUpperCase() + twolastNames[1].slice(1).toLowerCase();
     lastname = twolastNames.join("-");
   }
-  //Test
-  console.log(`Last name: ${lastname}`);
+
+  // console.log(`Last name: ${lastname}`);
   return lastname;
 }
 
@@ -116,16 +114,15 @@ function grabMiddleName(fullname) {
   //the middle name will be between the first space and the last space
   if (fullname.includes('"')) {
     // If the second name has "" it is NOT a middle name (but a nickname... we will see later)
-    middlename = "";
+    middlename = "-";
   } else if (middlename.length > 2) {
     // if the array is longer than 2, the name at index 1 will be the middlename!
     middlename = middlename[1];
     middlename = middlename.charAt(0).toUpperCase() + middlename.slice(1).toLowerCase();
   } else {
-    middlename = "";
+    middlename = "-";
   }
 
-  //Test
   // console.log(`Middle name: ${middlename}`);
   return middlename;
 }
@@ -138,10 +135,9 @@ function grabNickName(fullname) {
     //[1] because it indicates location of the nickname in fullname ;
     nickname = nickname[1];
   } else {
-    nickname = "";
+    nickname = "-";
   }
 
-  //Test
   // console.log(`Nickname: ${nickname}`);
   return nickname;
 }
@@ -151,7 +147,6 @@ function grabHouse(house) {
   house = house.charAt(0).toUpperCase() + house.slice(1).toLowerCase();
 
   // console.log(`House: ${house}`);
-
   return house;
 }
 
@@ -176,21 +171,51 @@ function grabBlood(lastname, bloodStatus) {
     bloodStatus = "Muggle-born mudblood!";
   }
 
-  console.log(`Blood is: ${bloodStatus}`);
+  // console.log(`Blood is: ${bloodStatus}`);
   console.log(" ");
   return bloodStatus;
 }
 
-// TO DO: Clear the template area
+//TO DO:Filtering
 
-function displayList() {
-  //clear the list
+//Sorting
+
+//Searching
+
+//TO DO: there may be another function buildList() that will come first
+
+function displayList(wizards) {
+  //clear the list++
+  document.querySelector("#wizardList tbody").innerHTML = "";
   //build a new list
+  wizards.forEach(displayWizard);
 }
 
-// TO DO: Populate the template & Inject it into HTML
-function displayWizard() {
+function displayWizard(student) {
   //create clone
+  const clone = document.querySelector("template#wizard").content.cloneNode(true);
+
   //set clone data
+  clone.querySelector("[data-field=firstName]").textContent = student.firstname;
+  clone.querySelector("[data-field=lastName]").textContent = student.lastname;
+  clone.querySelector("[data-field=middleName]").textContent = student.middlename;
+  clone.querySelector("[data-field=nickName]").textContent = student.nickname;
+  clone.querySelector("[data-field=house]").textContent = student.house;
+
+  //Mark an Inquisitor
+  //Mark a prefect
+  // clone.querySelector("[data-field=prefect]").dataset.prefect = student.prefect;
+  // clone.querySelector("[data-field=prefect]").addEventListener("click", clickPrefect);
+
+  // function clickPrefect() {
+  //   if (student.prefect === true) {
+  //     student.prefect = false;
+  //   } else {
+  //     student.prefect = true;
+  //   }
+  //   displayList();
+  // }
+
   //inject to parent
+  document.querySelector("#wizardList tbody").appendChild(clone);
 }

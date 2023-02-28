@@ -16,6 +16,7 @@
 
 * {
   background-color: lavender;
+  font-family: var(--text-baskerville-bolder);
 }
 
 h1 {
@@ -26,9 +27,19 @@ thead {
 }
 
 td[data-field="prefect"]::after {
-  content: url(img/prefect.png);
+  content: "⭐";
+  filter: drop-shadow(1px 3px 0px brown);
 }
 
 td[data-field="inquisitor"]::after {
-  content: url(img/inq-squad.png);
+  content: "👁️";
+  filter: drop-shadow(2px 2px 3px purple);
+}
+
+td[data-field="prefect"][data-prefect="false"]::after {
+  filter: grayscale(1);
+}
+
+td[data-field="inquisitor"][data-inquisitor="false"]::after {
+  filter: opacity(0.5);
 }

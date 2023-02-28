@@ -49,15 +49,16 @@
       <!-- this will be the template where we populate with created data -->
       <template id="wizard">
         <tr>
-          <td data-field="prefect"></td>
-          <td data-field="inquisitor"></td>
+          <td data-field="prefect" data-prefect="false"></td>
+          <td data-field="inquisitor" data-inquisitor="false"></td>
 
           <td data-field="firstName">First Name</td>
           <td data-field="lastName">Last Name</td>
           <td data-field="middleName">Middle Name</td>
           <td data-field="nickName">Nick Name</td>
           <td data-field="house">House</td>
-          <button id="btnView">View</button>
+          <td><button id="btnView">View</button></td>
+
           <!-- also needs a button to view -->
         </tr>
       </template>
