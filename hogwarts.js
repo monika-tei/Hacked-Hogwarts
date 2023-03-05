@@ -369,23 +369,59 @@ function showWizardCard(student) {
   //E.G. popupcard.appendChild(clone); // or whatever other name we come up with
 }
 
-// To DO: Try to make Prefect(chosenStudent)
-// To DO: IF someone is not pure blood or slytherin - they cannot join Inquisitors open/close
-
 // New here, ONGOING
 function tryToMakePrefect(chosenStudent) {
-  const prefects = allStudents.filter((student) => student.prefect);
-  const other = prefects.filter((student) => student.house === chosenStudent.house);
-  const numberOfOthers = other.length;
+  const prefect = allStudents.filter((student) => student.prefect);
+  // const girlPrefect = prefect.filter((student) => student.gender === chosenStudent.gender);
+  const sameHousePrefect = prefect.filter((student) => student.house === chosenStudent.house);
+  const numberOfSameHousePrefects = sameHousePrefect.length;
 
-  console.log(prefects);
+  // there can only by 2 people from the same house!
+  if (numberOfSameHousePrefects >= 2) {
+    removeAorB(sameHousePrefect[0], sameHousePrefect[1]);
+  } else {
+    makePrefect(chosenStudent);
+  }
 
-  // Testing
-  makePrefect(chosenStudent);
+  function removeAorB(prefectA, prefectB) {
+    console.log("there can only be 2 prefects");
 
-  function removeOther(other) {}
+    // ask user to ignore or remove a student
+    document.querySelector("#removeAorB").classList.remove("hide");
+    document.querySelector("#removeAorB .closebutton").addEventListener("click", closeDialog);
+    document.querySelector("#removeAorB #removeA").addEventListener("click", removeA);
+    document.querySelector("#removeAorB #removeB").addEventListener("click", removeB);
 
-  function removeAorB(prefectA, prefectB) {}
+    document.querySelector("#removeAorB [data-field=prefectA]").textContent = `${prefectA.firstname} ${prefectA.lastname}`;
+    document.querySelector("#removeAorB [data-field=prefectB]").textContent = `${prefectB.firstname} ${prefectB.lastname}`;
+
+    // if ignore, do nothing, close dialog
+    function closeDialog() {
+      console.log("close dialog");
+      document.querySelector("#removeAorB").classList.add("hide");
+      document.querySelector(".closebutton").removeEventListener("click", closeDialog);
+      document.getElementById("removeA").removeEventListener("click", removeA);
+      document.getElementById("removeB").removeEventListener("click", removeB);
+    }
+
+    // if remove A
+    function removeA() {
+      console.log("remove-A");
+      // removePrefect(prefectA);
+      // makePrefect(chosenStudent);
+      // buildList();
+      // closeDialog();
+    }
+
+    // if remove B
+    function removeB() {
+      console.log("remove-B");
+      // removePrefect(prefectB);
+      // makePrefect(chosenStudent);
+      // buildList();
+      // closeDialog();
+    }
+  }
 
   function removePrefect(prefectStudent) {
     prefectStudent.prefect = false;
@@ -395,3 +431,5 @@ function tryToMakePrefect(chosenStudent) {
     student.prefect = true;
   }
 }
+
+// To DO: IF someone is not pure blood or slytherin - they cannot join Inquisitors open/close

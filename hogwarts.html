@@ -71,6 +71,33 @@
       </template>
 
       <!-- insert wizard-card-modal in here, which will be the popup -->
+
+      <!-- insert the pop-up dialog to remove A or B-->
+      <div id="removeAorB" class="modal hide">
+        <div class="prefect-dialog">
+          <button class="closebutton">X</button>
+          <h1>Attention!</h1>
+          <p>
+            There can be only 2 prefects from each house. <br />
+            Please choose which prefect you want to remove?
+          </p>
+          <div class="sidebyside">
+            <button id="removeA"><span data-field="prefectA"> RemoveA</span></button>
+            <button id="removeB"><span data-field="prefectB">RemoveB</span></button>
+          </div>
+        </div>
+      </div>
+      <!--Can't be made an INQ-->
+      <div id="nonInq" class="modal">
+        <div class="prefect-dialog">
+          <button class="closebutton">X</button>
+          <h1>Attention!</h1>
+          <p>
+            Only students from Slytherin and those of Pure Blood <br />
+            can be Inquisitorial representitives.
+          </p>
+        </div>
+      </div>
     </main>
     <script src="hogwarts.js"></script>
   </body>
