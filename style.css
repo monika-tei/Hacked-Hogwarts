@@ -26,20 +26,37 @@ thead {
   font-family: var(--header-gothic-font);
 }
 
+/* PREFECT */
 td[data-field="prefect"]::after {
   content: "⭐";
   filter: drop-shadow(1px 3px 0px brown);
-}
-
-td[data-field="inquisitor"]::after {
-  content: "👁️";
-  filter: drop-shadow(2px 2px 3px purple);
 }
 
 td[data-field="prefect"][data-prefect="false"]::after {
   filter: grayscale(1);
 }
 
+/* INQUISITORS */
+td[data-field="inquisitor"]::after {
+  content: "👁️";
+  filter: drop-shadow(2px 2px 3px purple);
+}
+
 td[data-field="inquisitor"][data-inquisitor="false"]::after {
   filter: opacity(0.5);
+}
+
+/* Indicate active sort */
+#sorting th.sortBy {
+  text-decoration: underline;
+}
+
+/* showing a smybol next to Sort */
+
+#sorting th.sortBy[data-sort-direction="asc"]::after {
+  content: "↑";
+}
+
+#sorting th.sortBy[data-sort-direction="desc"]::after {
+  content: "↓";
 }

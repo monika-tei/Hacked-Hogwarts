@@ -1,11 +1,39 @@
-To Do's for my next session:
+To Do's for my NEXT session:
+// Prefects and Inquisitors (first step)
+// Creating rules for Prefects
+// Creating rules for Inquisitors
+// Creating two simple popup box for confirmation
 
-Let's begin working on the filters
-- watch animal base video again to remember how to draw activity diagram
-- hardcode one filter
-- adjust to all 5 filters
-- probably will need a buildList() function 
 
+
+
+TO DO today:
+// Start planning Prefects (Stars)
+-- Add "Star" status to prefect in the list
+-- Add interactivity to turn it on and off
+
+
+- Maybe need to come back to this video but the logic behind stars is  not what I need
+https://www.youtube.com/watch?v=4cfgbkyI8Ng&list=PL1FXcxClUqNKcJsOelM7Wa_0lrwuNm2l3&index=13
+
+
+
+Make a PREFECT
+// Finish watching this video:
+https://www.youtube.com/watch?v=IhGxbdF4tI0&list=PL1FXcxClUqNKcJsOelM7Wa_0lrwuNm2l3&index=17
+(7min in)
+
+// Only 2 students
+// Only boy and girl (ot two boys two girls)
+// Able to tick on and off 
+// Only one from each house
+// Confrontation popup-box before removing one students prefect status
+
+
+Make an INQUISITOR
+// add remove easily on click
+// Only pure-blood
+// Or from Slytherin
 
 
 
