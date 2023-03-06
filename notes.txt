@@ -3,6 +3,8 @@ To Do's for my NEXT session:
   - Download images from here: https://petlatkea.dk/2021/hogwarts/images.zip;
   - Find a way to extract/Calculate image filename from the student name;
   _ Fix problems... Some don't have images, some have other pattern;
+- display small image in list
+
 
 
 
@@ -12,11 +14,10 @@ GENERAL TO DO:
 
 - Find student image
 - Details pop-up
-- Implement Search (e.g. first name)
 - About
 - Expelling (from details card)
 - Ability to filter Expelled
-- Hacking
+- Hacking (Tuesday)
 - Styling (leave 2 days for this)
 - Documentation (leave 1 day for this)
   - Make a list of what is needed

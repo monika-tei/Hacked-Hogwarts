@@ -32,11 +32,16 @@ function start() {
   findButtons();
 }
 
+// TO DO: Hack the system event listener
 function findButtons() {
   //Filter
   document.querySelectorAll("[data-action='filter']").forEach((button) => button.addEventListener("click", selectFilter));
   //Sort
   document.querySelectorAll("[data-action='sort']").forEach((button) => button.addEventListener("click", selectSort));
+  //Search
+  document.querySelector("#search-bar").addEventListener("input", searching);
+
+  //Hack the system
 }
 
 // Load JSON files: student list and student bloodlines
@@ -296,8 +301,16 @@ function buildList() {
   displayList(sortedList);
 }
 
-//To DO: About
-//To DO: Searching
+//Searching
+function searching() {
+  // find the word
+  const searchingFor = document.querySelector("#search-bar").value.toLowerCase();
+  console.log(`searching for ${searchingFor}`);
+  const findSearchResult = allStudents.filter((student) => {
+    return student.firstname.toLowerCase().includes(searchingFor) || student.lastname.toLowerCase().includes(searchingFor);
+  });
+  displayList(findSearchResult);
+}
 
 //TO DO: show number of students
 function displayList(wizards) {
@@ -463,3 +476,5 @@ function notInquisitor() {
     document.querySelector("#nonInq .closebutton").removeEventListener("click", closeInqDialog);
   }
 }
+
+//To DO: About
