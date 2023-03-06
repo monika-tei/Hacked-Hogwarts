@@ -13,7 +13,6 @@ const Student = {
   blood: "",
   prefect: false,
   inquisitor: false,
-  // new here
   expelled: false,
 };
 
@@ -27,14 +26,12 @@ const settings = {
 // A very big array that stores each student as an object
 let allStudents = [];
 
-// new here
 function start() {
   console.log("start");
   grabJSON();
   findButtons();
 }
 
-// new here
 function findButtons() {
   //Filter
   document.querySelectorAll("[data-action='filter']").forEach((button) => button.addEventListener("click", selectFilter));
@@ -54,7 +51,6 @@ async function grabJSON() {
 function handleStudentObjects(students, bloodStatus) {
   students.forEach((element) => {
     //create new student object
-
     const student = Object.create(Student);
     student.firstname = grabFirstName(element.fullname);
     student.lastname = grabLastName(element.fullname);
@@ -63,7 +59,7 @@ function handleStudentObjects(students, bloodStatus) {
     student.house = grabHouse(element.house);
     student.bloodStatus = grabBlood(student.lastname, bloodStatus);
     // TO DO:
-    student.picture = grabSelfie(student.firstname, student.lastname);
+    student.picture = grabSelfie(element.firstname, element.lastname);
 
     student.prefect = false;
     student.inquisitor = false;
@@ -176,7 +172,6 @@ function grabBlood(lastname, bloodStatus) {
     bloodStatus = "Muggle-born mudblood!";
   }
 
-  // console.log(`Blood is: ${bloodStatus}`);
   console.log(" ");
   return bloodStatus;
 }
@@ -190,7 +185,7 @@ function grabSelfie(firstname, lastname) {
   //   .toLowerCase()}.png`;
 }
 
-// Filtering
+// Filtering-------------------------------------
 function selectFilter(event) {
   const filter = event.target.dataset.filter;
   setFilter(filter);
@@ -201,7 +196,6 @@ function setFilter(filter) {
   buildList();
 }
 
-// Filter - what to display
 function filterList(filteredList) {
   // let filteredList = allStudents;
   if (settings.filterBy === "gryffindor") {
@@ -220,7 +214,6 @@ function filterList(filteredList) {
   return filteredList;
 }
 
-// All new here
 function isGryffindor(student) {
   return student.house === "Gryffindor";
 }
@@ -249,7 +242,7 @@ function isExpelled(student) {
   return student.expelled === true;
 }
 
-//SORT
+//SORT-------------------------------------
 function selectSort(event) {
   const sortBy = event.target.dataset.sort;
   const sortDir = event.target.dataset.sortDirection;
@@ -287,7 +280,6 @@ function sortList(sortedList) {
   sortedList = sortedList.sort(sortByProperty);
 
   function sortByProperty(studentA, studentB) {
-    // console.log(`sortBy is ${sortBy}`);
     if (studentA[settings.sortBy] < studentB[settings.sortBy]) {
       return -1 * direction;
     } else {
@@ -307,6 +299,7 @@ function buildList() {
 //To DO: About
 //To DO: Searching
 
+//TO DO: show number of students
 function displayList(wizards) {
   //clear the list:
   document.querySelector("#wizardList tbody").innerHTML = "";
@@ -316,6 +309,7 @@ function displayList(wizards) {
   // document.querySelector(#student_number or other ID).textContent = ` Number of student wizards: ${wizards.length}´
 }
 
+//TO DO: show less information - only first name & last name
 function displayWizard(student) {
   //create clone
   const clone = document.querySelector("template#wizard").content.cloneNode(true);
@@ -379,10 +373,10 @@ function showWizardCard(student) {
   //blood status
   //house
 
-  //if student is prefect, show prefect badge or write textContent yes/no
+  //if student is prefect, write textContent yes/no
   //if student is an inquisitor, write yes no
 
-  //UI to close the wixard  card
+  //UI to close the wizard card
 
   //append it to clone
   //E.G. popupcard.appendChild(clone); // or whatever other name we come up with
