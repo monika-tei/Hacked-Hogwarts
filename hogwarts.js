@@ -59,8 +59,7 @@ function handleStudentObjects(students, bloodStatus) {
     student.house = grabHouse(element.house);
     student.bloodStatus = grabBlood(student.lastname, bloodStatus);
     // TO DO:
-    student.picture = grabSelfie(element.firstname, element.lastname);
-
+    student.picture = grabSelfie(student.firstname, student.lastname);
     student.prefect = false;
     student.inquisitor = false;
 
@@ -177,12 +176,18 @@ function grabBlood(lastname, bloodStatus) {
 }
 
 // TO DO: Continue here...
+//ong conttains last name in lower case and first initial of the first name;
 function grabSelfie(firstname, lastname) {
   console.log(" lookout for profile pictures...");
   let picture;
-  // picture = `./img/${lastname.toLowerCase()}_${firstname
-  //   .substring(0, 1)
-  //   .toLowerCase()}.png`;
+
+  if (lastname === "Patil") {
+    picture = `/img/${lastname.toLowerCase()}_${firstname.toLowerCase()}.png`;
+  } else {
+    picture = `/img/${lastname.toLowerCase()}_${firstname.substring(0, 1).toLowerCase()}.png`;
+
+    return picture;
+  }
 }
 
 // Filtering-------------------------------------
@@ -297,7 +302,6 @@ function buildList() {
 }
 
 //To DO: About
-//To DO: Searching
 
 //TO DO: show number of students
 function displayList(wizards) {
@@ -316,13 +320,10 @@ function displayWizard(student) {
 
   //set clone data
   //TO DO: small image
-  clone.querySelector("[data-field=picture]").src = student.picture;
+  clone.querySelector("[data-field=picture] img").src = student.picture;
   clone.querySelector("[data-field=firstName]").textContent = student.firstname;
   clone.querySelector("[data-field=lastName]").textContent = student.lastname;
   clone.querySelector("[data-field=house]").textContent = student.house;
-
-  // Make the button clickable to see more details
-  clone.querySelector("#btnView").addEventListener("click", () => showWizardCard(student));
 
   // PREFECTS
   clone.querySelector("[data-field=prefect]").dataset.prefect = student.prefect;
@@ -354,6 +355,9 @@ function displayWizard(student) {
     buildList();
   }
 
+  // Make the button clickable to see more details
+  clone.querySelector("#btnView").addEventListener("click", () => showWizardCard(student));
+
   //inject to parent
   document.querySelector("#wizardList tbody").appendChild(clone);
 }
@@ -372,11 +376,12 @@ function showWizardCard(student) {
 
   //if student is prefect, write textContent yes/no
   //if student is an inquisitor, write yes no
+  //if expel
 
   //UI to close the wizard card
 
   //append it to clone
-  //E.G. popupcard.appendChild(clone); // or whatever other name we come up with
+  //E.G. document.querySelector("body").appendChild(clone); // or whatever other name we come up with
 }
 
 // MAYBE TO DO: Gender rules (?)

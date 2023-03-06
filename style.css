@@ -117,8 +117,8 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
 
 /*testing*/
 .picturebox-small {
-  background-color: aquamarine;
-  background-size: contain;
-  height: auto;
-  width: 4em;
+  border: 1px solid hotpink;
+  /* background-size: cover; */
+  /* height: auto; */
+  /* width: 5em; */
 }

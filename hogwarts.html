@@ -35,7 +35,9 @@
       <table id="wizardList">
         <thead>
           <tr id="sorting">
-            <th id="img"></th>
+            <th id="img">
+              <img src="" alt="" />
+            </th>
             <th>PRF</th>
 
             <th>INQ</th>
@@ -55,7 +57,10 @@
       <!-- this will be the template where we populate with created data -->
       <template id="wizard">
         <tr>
-          <td data-field="picture" class="picturebox-small"></td>
+          <td data-field="picture" class="picturebox-small">
+            <img src="" alt="" />
+          </td>
+
           <td data-field="prefect" data-prefect="false"></td>
           <td data-field="inquisitor" data-inquisitor="false"></td>
 
@@ -70,7 +75,7 @@
       </template>
 
       <!-- insert wizard-card-modal in here, which will be the popup -->
-      <div id="wizard-modal"></div>
+      <template id="wizard-modal"></template>
 
       <!-------------------insert the pop-up dialog to remove A or B-->
       <div id="removeAorB" class="modal hide">
