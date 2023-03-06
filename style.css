@@ -114,3 +114,10 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
 #removeA {
   background-color: aqua;
 }
+
+/*testing*/
+.picturebox-small {
+  background-color: aquamarine;
+  width: 4em;
+  height: auto;
+}

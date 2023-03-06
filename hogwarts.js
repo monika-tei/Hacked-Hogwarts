@@ -317,10 +317,6 @@ function displayWizard(student) {
   //set clone data
   clone.querySelector("[data-field=firstName]").textContent = student.firstname;
   clone.querySelector("[data-field=lastName]").textContent = student.lastname;
-  // I can also choose not to show middlename and nickname
-  clone.querySelector("[data-field=middleName]").textContent = student.middlename;
-  // I can also choose not to show middlename and nickname
-  clone.querySelector("[data-field=nickName]").textContent = student.nickname;
 
   clone.querySelector("[data-field=house]").textContent = student.house;
 
