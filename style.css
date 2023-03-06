@@ -118,6 +118,7 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
 /*testing*/
 .picturebox-small {
   background-color: aquamarine;
-  width: 4em;
+  background-size: contain;
   height: auto;
+  width: 4em;
 }

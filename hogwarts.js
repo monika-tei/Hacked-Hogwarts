@@ -315,9 +315,10 @@ function displayWizard(student) {
   const clone = document.querySelector("template#wizard").content.cloneNode(true);
 
   //set clone data
+  //TO DO: small image
+  clone.querySelector("[data-field=picture]").src = student.picture;
   clone.querySelector("[data-field=firstName]").textContent = student.firstname;
   clone.querySelector("[data-field=lastName]").textContent = student.lastname;
-
   clone.querySelector("[data-field=house]").textContent = student.house;
 
   // Make the button clickable to see more details
