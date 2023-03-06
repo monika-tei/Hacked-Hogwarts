@@ -30,9 +30,7 @@ let allStudents = [];
 // new here
 function start() {
   console.log("start");
-
   grabJSON();
-  // new here
   findButtons();
 }
 
@@ -52,7 +50,7 @@ async function grabJSON() {
   });
 }
 
-// An important function to handle the data from fetching. elements are the objects we import from json
+// TO DO: Find profile picture
 function handleStudentObjects(students, bloodStatus) {
   students.forEach((element) => {
     //create new student object
@@ -64,12 +62,12 @@ function handleStudentObjects(students, bloodStatus) {
     student.nickname = grabNickName(element.fullname);
     student.house = grabHouse(element.house);
     student.bloodStatus = grabBlood(student.lastname, bloodStatus);
-    student.prefect = false;
-    student.inqSpy = false;
-    // To Do: image
-    // student.picture = grabProfilePicture(element.fullname.trim());
+    // TO DO:
+    student.picture = grabSelfie(student.firstname, student.lastname);
 
-    //CHANGES MADE HERE, was .push.Student;
+    student.prefect = false;
+    student.inquisitor = false;
+
     allStudents.push(student);
   });
   displayList(allStudents);
@@ -183,21 +181,27 @@ function grabBlood(lastname, bloodStatus) {
   return bloodStatus;
 }
 
-//NEW:Filtering--------------------
+// TO DO: Continue here...
+function grabSelfie(firstname, lastname) {
+  console.log(" lookout for profile pictures...");
+  let picture;
+  // picture = `./img/${lastname.toLowerCase()}_${firstname
+  //   .substring(0, 1)
+  //   .toLowerCase()}.png`;
+}
 
+// Filtering
 function selectFilter(event) {
   const filter = event.target.dataset.filter;
-  // console.log(`filter by ${filter}`);
   setFilter(filter);
 }
 
-//new, making filterBy to global
 function setFilter(filter) {
   settings.filterBy = filter;
   buildList();
 }
 
-// new:
+// Filter - what to display
 function filterList(filteredList) {
   // let filteredList = allStudents;
   if (settings.filterBy === "gryffindor") {
@@ -208,6 +212,10 @@ function filterList(filteredList) {
     filteredList = allStudents.filter(isRavenclaw);
   } else if (settings.filterBy === "slytherin") {
     filteredList = allStudents.filter(isSlytherin);
+  } else if (settings.filterBy === "prefect") {
+    filteredList = allStudents.filter(isPrefect);
+  } else if (settings.filterBy === "inquisitor") {
+    filteredList = allStudents.filter(isInqSqd);
   }
   return filteredList;
 }
@@ -241,7 +249,7 @@ function isExpelled(student) {
   return student.expelled === true;
 }
 
-//new Sorting------------------------
+//SORT
 function selectSort(event) {
   const sortBy = event.target.dataset.sort;
   const sortDir = event.target.dataset.sortDirection;
@@ -261,15 +269,12 @@ function selectSort(event) {
   setSort(sortBy, sortDir);
 }
 
-//new, making filterBy to global
 function setSort(sortBy, sortDir) {
   settings.sortBy = sortBy;
   settings.sortDir = sortDir;
   buildList();
 }
 
-//new Sorting
-// also changes to HTML data-sort
 function sortList(sortedList) {
   let direction = 1;
 
@@ -293,7 +298,6 @@ function sortList(sortedList) {
   return sortedList;
 }
 
-//New
 function buildList() {
   const currentList = filterList(allStudents);
   const sortedList = sortList(currentList);
@@ -329,8 +333,7 @@ function displayWizard(student) {
   // Make the button clickable to see more details
   clone.querySelector("#btnView").addEventListener("click", () => showWizardCard(student));
 
-  //Mark a prefect
-
+  // PREFECTS
   clone.querySelector("[data-field=prefect]").dataset.prefect = student.prefect;
   clone.querySelector("[data-field=prefect]").addEventListener("click", clickPrefect);
 
@@ -341,6 +344,22 @@ function displayWizard(student) {
       tryToMakePrefect(student);
     }
 
+    buildList();
+  }
+
+  // INQUISITORS
+  clone.querySelector("[data-field=inquisitor]").dataset.inquisitor = student.inquisitor;
+  clone.querySelector("[data-field=inquisitor]").addEventListener("click", clickInquisitor);
+
+  function clickInquisitor() {
+    console.log("clicked inquisitor");
+    if (student.house === "Slytherin" && student.bloodStatus === "Of Pure Blood") {
+      student.inquisitor = true;
+    } else if (student.inquisitor === true) {
+      student.inquisitor = false;
+    } else {
+      notInquisitor();
+    }
     buildList();
   }
 
@@ -369,10 +388,9 @@ function showWizardCard(student) {
   //E.G. popupcard.appendChild(clone); // or whatever other name we come up with
 }
 
-// New here, ONGOING
+// MAYBE TO DO: Gender rules (?)
 function tryToMakePrefect(chosenStudent) {
   const prefect = allStudents.filter((student) => student.prefect);
-  // const girlPrefect = prefect.filter((student) => student.gender === chosenStudent.gender);
   const sameHousePrefect = prefect.filter((student) => student.house === chosenStudent.house);
   const numberOfSameHousePrefects = sameHousePrefect.length;
 
@@ -386,19 +404,22 @@ function tryToMakePrefect(chosenStudent) {
   function removeAorB(prefectA, prefectB) {
     console.log("there can only be 2 prefects");
 
-    // ask user to ignore or remove a student
+    // show dialog popup
     document.querySelector("#removeAorB").classList.remove("hide");
+    // activate close btn, remove A and remove B buttons;
     document.querySelector("#removeAorB .closebutton").addEventListener("click", closeDialog);
     document.querySelector("#removeAorB #removeA").addEventListener("click", removeA);
     document.querySelector("#removeAorB #removeB").addEventListener("click", removeB);
-
+    // show prefect initials on buttons
     document.querySelector("#removeAorB [data-field=prefectA]").textContent = `${prefectA.firstname} ${prefectA.lastname}`;
     document.querySelector("#removeAorB [data-field=prefectB]").textContent = `${prefectB.firstname} ${prefectB.lastname}`;
 
-    // if ignore, do nothing, close dialog
+    // if ignore, no action taken, close dialog, deactivate buttons
     function closeDialog() {
       console.log("close dialog");
+      // hide dialog popup
       document.querySelector("#removeAorB").classList.add("hide");
+      // deactivate buttons
       document.querySelector(".closebutton").removeEventListener("click", closeDialog);
       document.getElementById("removeA").removeEventListener("click", removeA);
       document.getElementById("removeB").removeEventListener("click", removeB);
@@ -407,19 +428,19 @@ function tryToMakePrefect(chosenStudent) {
     // if remove A
     function removeA() {
       console.log("remove-A");
-      // removePrefect(prefectA);
-      // makePrefect(chosenStudent);
-      // buildList();
-      // closeDialog();
+      removePrefect(prefectA);
+      makePrefect(chosenStudent);
+      buildList();
+      closeDialog();
     }
 
     // if remove B
     function removeB() {
       console.log("remove-B");
-      // removePrefect(prefectB);
-      // makePrefect(chosenStudent);
-      // buildList();
-      // closeDialog();
+      removePrefect(prefectB);
+      makePrefect(chosenStudent);
+      buildList();
+      closeDialog();
     }
   }
 
@@ -432,4 +453,19 @@ function tryToMakePrefect(chosenStudent) {
   }
 }
 
-// To DO: IF someone is not pure blood or slytherin - they cannot join Inquisitors open/close
+function notInquisitor() {
+  console.log(" student cannot join inquisitors");
+
+  // Show popup, activate button
+  document.querySelector("#nonInq").classList.remove("hide");
+  document.querySelector("#nonInq .closebutton").addEventListener("click", closeInqDialog);
+
+  //Close
+  function closeInqDialog() {
+    console.log("close dialog");
+    // hide popup
+    document.querySelector("#nonInq").classList.add("hide");
+    //deactivate button
+    document.querySelector("#nonInq .closebutton").removeEventListener("click", closeInqDialog);
+  }
+}

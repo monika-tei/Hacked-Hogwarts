@@ -35,9 +35,9 @@
       <table id="wizardList">
         <thead>
           <tr id="sorting">
-            <th data-action="sort" data-sort-direction="asc" data-sort="prefect">PRF</th>
+            <th>PRF</th>
 
-            <th data-action="sort" data-sort-direction="asc" data-sort="inquisitor">INQ</th>
+            <th>INQ</th>
 
             <th data-action="sort" data-sort-direction="asc" data-sort="firstname">First Name</th>
 
@@ -82,19 +82,23 @@
             Please choose which prefect you want to remove?
           </p>
           <div class="sidebyside">
-            <button id="removeA"><span data-field="prefectA"> RemoveA</span></button>
-            <button id="removeB"><span data-field="prefectB">RemoveB</span></button>
+            <button id="removeA">
+              <span data-field="prefectA"> RemoveA</span>
+            </button>
+            <button id="removeB">
+              <span data-field="prefectB">RemoveB</span>
+            </button>
           </div>
         </div>
       </div>
       <!--Can't be made an INQ-->
-      <div id="nonInq" class="modal">
-        <div class="prefect-dialog">
+      <div id="nonInq" class="modal hide">
+        <div class="inquisitor-dialog">
           <button class="closebutton">X</button>
-          <h1>Attention!</h1>
+          <h1>Muggle-born mudblood!</h1>
           <p>
             Only students from Slytherin and those of Pure Blood <br />
-            can be Inquisitorial representitives.
+            can be made Inquisitorial representitives.
           </p>
         </div>
       </div>

@@ -1,16 +1,26 @@
 To Do's for my NEXT session:
-// Make so that its not possible to sort by Prefects, but possible to filter by that
+- Find student image;
+  - Download images from here: https://petlatkea.dk/2021/hogwarts/images.zip;
+  - Find a way to extract/Calculate image filename from the student name;
+  _ Fix problems... Some don't have images, some have other pattern;
 
-// Inquisitors (first step)
-// Creating rules for Inquisitors
 
 
-Make an INQUISITOR
-or mark a non inquisitor?
 
-// add remove easily on click
-// Only pure-blood
-// Or from Slytherin
+
+GENERAL TO DO:
+
+- Find student image
+- Details pop-up
+- Implement Search (e.g. first name)
+- About
+- Expelling (from details card)
+- Ability to filter Expelled
+- Hacking
+- Styling (leave 2 days for this)
+- Documentation (leave 1 day for this)
+  - Make a list of what is needed
+  - For the coming 5 days: document a little something
 
 
 
@@ -28,3 +38,12 @@ Potentially Hacked font families
 
 https://fonts.google.com/specimen/Rubik+Iso?preview.text=Slytherin&preview.text_type=custom
 
+
+
+  <th
+              data-action="sort"
+              data-sort-direction="asc"
+              data-sort="prefect"
+            >
+              PRF
+            </th>

@@ -83,7 +83,8 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
   align-items: flex-start;
 }
 
-.prefect-dialog {
+.prefect-dialog,
+.inquisitor-dialog {
   box-shadow: 2px 1px 10px black;
   border-radius: 5px;
   padding: 2em;
@@ -104,7 +105,8 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
   height: 2em; */
 }
 
-.prefect-dialog h1 {
+.prefect-dialog h1,
+.inquisitor-dialog h1 {
   margin-top: 0;
   font-family: var(--header-gothic-font);
 }
