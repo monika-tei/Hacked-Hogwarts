@@ -62,10 +62,9 @@ function handleStudentObjects(students, bloodStatus) {
     student.middlename = grabMiddleName(element.fullname);
     student.nickname = grabNickName(element.fullname);
     student.house = grabHouse(element.house);
+    student.picture = grabSelfie(student.firstname, student.lastname);
     student.bloodStatus = grabBlood(student.lastname, bloodStatus);
     // TO DO:
-    student.picture = grabSelfie(element.firstname, element.lastname);
-
     student.prefect = false;
     student.inquisitor = false;
 
@@ -156,6 +155,25 @@ function grabHouse(house) {
   return house;
 }
 
+// TO DO: Continue here...
+function grabSelfie(firstname, lastname) {
+  let picture;
+
+  if (lastname === "") {
+    picture = `./img/${firstname.toLowerCase()}.png`;
+  } else if (lastname === "Patil") {
+    picture = `./img/${lastname.toLowerCase()}_${firstname.toLowerCase()}.png`;
+  } else if (firstname === "Justin") {
+    lastname = lastname.split("-");
+    picture = `./img/${lastname[1].toLowerCase()}_${firstname.substring(0, 1).toLowerCase()}.png`;
+    console.log(picture);
+  } else {
+    picture = `./img/${lastname.toLowerCase()}_${firstname.substring(0, 1).toLowerCase()}.png`;
+    // console.log(picture);
+  }
+  return picture;
+}
+
 function grabBlood(lastname, bloodStatus) {
   //define 2 arrays and store the provided data
   let halfBloodFamily = bloodStatus.half;
@@ -179,15 +197,6 @@ function grabBlood(lastname, bloodStatus) {
 
   console.log(" ");
   return bloodStatus;
-}
-
-// TO DO: Continue here...
-function grabSelfie(firstname, lastname) {
-  console.log(" lookout for profile pictures...");
-  let picture;
-  // picture = `./img/${lastname.toLowerCase()}_${firstname
-  //   .substring(0, 1)
-  //   .toLowerCase()}.png`;
 }
 
 // Filtering-------------------------------------
@@ -328,18 +337,11 @@ function displayWizard(student) {
   const clone = document.querySelector("template#wizard").content.cloneNode(true);
 
   //set clone data
+  //TO DO: small image
   clone.querySelector("[data-field=firstName]").textContent = student.firstname;
   clone.querySelector("[data-field=lastName]").textContent = student.lastname;
-  // I can also choose not to show middlename and nickname
-  clone.querySelector("[data-field=middleName]").textContent = student.middlename;
-  // I can also choose not to show middlename and nickname
-  clone.querySelector("[data-field=nickName]").textContent = student.nickname;
-
   clone.querySelector("[data-field=house]").textContent = student.house;
-
-  // Make the button clickable to see more details
-  clone.querySelector("#btnView").addEventListener("click", () => showWizardCard(student));
-
+  clone.querySelector("[data-field=picture] img").src = student.picture;
   // PREFECTS
   clone.querySelector("[data-field=prefect]").dataset.prefect = student.prefect;
   clone.querySelector("[data-field=prefect]").addEventListener("click", clickPrefect);
@@ -370,6 +372,9 @@ function displayWizard(student) {
     buildList();
   }
 
+  // Make the button clickable to see more details
+  clone.querySelector("#btnView").addEventListener("click", () => showWizardCard(student));
+
   //inject to parent
   document.querySelector("#wizardList tbody").appendChild(clone);
 }
@@ -388,11 +393,12 @@ function showWizardCard(student) {
 
   //if student is prefect, write textContent yes/no
   //if student is an inquisitor, write yes no
+  //if expel
 
   //UI to close the wizard card
 
   //append it to clone
-  //E.G. popupcard.appendChild(clone); // or whatever other name we come up with
+  //E.G. document.querySelector("body").appendChild(clone); // or whatever other name we come up with
 }
 
 // MAYBE TO DO: Gender rules (?)

@@ -43,15 +43,16 @@
       <table id="wizardList">
         <thead>
           <tr id="sorting">
+            <th id="img">
+              <img src="" alt="" />
+            </th>
             <th>PRF</th>
 
             <th>INQ</th>
-
             <th data-action="sort" data-sort-direction="asc" data-sort="firstname">First Name</th>
 
             <th data-action="sort" data-sort-direction="asc" data-sort="lastname">Last Name</th>
-            <th data-action="sort" data-sort-direction="asc" data-sort="middlename">Middle Name</th>
-            <th data-action="sort" data-sort-direction="asc" data-sort="nickname">Nickname</th>
+
             <th data-action="sort" data-sort-direction="asc" data-sort="house">House</th>
             <th data-action="sort" data-sort-direction="asc" data-sort="details">Details</th>
           </tr>
@@ -64,13 +65,16 @@
       <!-- this will be the template where we populate with created data -->
       <template id="wizard">
         <tr>
+          <td data-field="picture" class="picturebox-small">
+            <img src="" alt="" />
+          </td>
+
           <td data-field="prefect" data-prefect="false"></td>
           <td data-field="inquisitor" data-inquisitor="false"></td>
 
           <td data-field="firstName">First Name</td>
           <td data-field="lastName">Last Name</td>
-          <td data-field="middleName">Middle Name</td>
-          <td data-field="nickName">Nick Name</td>
+
           <td data-field="house">House</td>
           <td><button id="btnView">View</button></td>
 
@@ -79,7 +83,7 @@
       </template>
 
       <!-- insert wizard-card-modal in here, which will be the popup -->
-      <div id="wizard-modal"></div>
+      <template id="wizard-modal"></template>
 
       <!-------------------insert the pop-up dialog to remove A or B-->
       <div id="removeAorB" class="modal hide">

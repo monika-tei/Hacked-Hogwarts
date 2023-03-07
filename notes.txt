@@ -1,7 +1,5 @@
 To Do's for my NEXT session:
 - Find student image;
-  - Download images from here: https://petlatkea.dk/2021/hogwarts/images.zip;
-  - Find a way to extract/Calculate image filename from the student name;
   _ Fix problems... Some don't have images, some have other pattern;
 - display small image in list
 
