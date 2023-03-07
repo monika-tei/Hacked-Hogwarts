@@ -150,6 +150,24 @@ function grabHouse(house) {
   return house;
 }
 
+// TO DO: Continue here...
+function grabSelfie(firstname, lastname) {
+  let picture;
+  //Patil situation not working
+  //Leanne Situation
+  //Fintchley situation (split ("-"))
+
+  if (lastname === "Patil") {
+    console.log("gotta find sisters Patil");
+    // picture = `./img/${lastname.toLowerCase()}_${firstname.toLowerCase()}.png`;
+    // console.log(picture);
+  } else {
+    picture = `./img/${lastname.toLowerCase()}_${firstname.substring(0, 1).toLowerCase()}.png`;
+
+    return picture;
+  }
+}
+
 function grabBlood(lastname, bloodStatus) {
   //define 2 arrays and store the provided data
   let halfBloodFamily = bloodStatus.half;
@@ -173,21 +191,6 @@ function grabBlood(lastname, bloodStatus) {
 
   console.log(" ");
   return bloodStatus;
-}
-
-// TO DO: Continue here...
-//ong conttains last name in lower case and first initial of the first name;
-function grabSelfie(firstname, lastname) {
-  console.log(" lookout for profile pictures...");
-  let picture;
-
-  if (lastname === "Patil") {
-    picture = `/img/${lastname.toLowerCase()}_${firstname.toLowerCase()}.png`;
-  } else {
-    picture = `/img/${lastname.toLowerCase()}_${firstname.substring(0, 1).toLowerCase()}.png`;
-
-    return picture;
-  }
 }
 
 // Filtering-------------------------------------
@@ -320,7 +323,7 @@ function displayWizard(student) {
 
   //set clone data
   //TO DO: small image
-  clone.querySelector("[data-field=picture] img").src = student.picture;
+  // clone.querySelector("[data-field=picture] img").src = student.picture;
   clone.querySelector("[data-field=firstName]").textContent = student.firstname;
   clone.querySelector("[data-field=lastName]").textContent = student.lastname;
   clone.querySelector("[data-field=house]").textContent = student.house;
