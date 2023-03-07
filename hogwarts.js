@@ -57,9 +57,9 @@ function handleStudentObjects(students, bloodStatus) {
     student.middlename = grabMiddleName(element.fullname);
     student.nickname = grabNickName(element.fullname);
     student.house = grabHouse(element.house);
+    student.picture = grabSelfie(student.firstname, student.lastname);
     student.bloodStatus = grabBlood(student.lastname, bloodStatus);
     // TO DO:
-    student.picture = grabSelfie(student.firstname, student.lastname);
     student.prefect = false;
     student.inquisitor = false;
 
@@ -153,19 +153,20 @@ function grabHouse(house) {
 // TO DO: Continue here...
 function grabSelfie(firstname, lastname) {
   let picture;
-  //Patil situation not working
-  //Leanne Situation
-  //Fintchley situation (split ("-"))
 
-  if (lastname === "Patil") {
-    console.log("gotta find sisters Patil");
-    // picture = `./img/${lastname.toLowerCase()}_${firstname.toLowerCase()}.png`;
-    // console.log(picture);
+  if (lastname === "") {
+    picture = `./img/${firstname.toLowerCase()}.png`;
+  } else if (lastname === "Patil") {
+    picture = `./img/${lastname.toLowerCase()}_${firstname.toLowerCase()}.png`;
+  } else if (firstname === "Justin") {
+    lastname = lastname.split("-");
+    picture = `./img/${lastname[1].toLowerCase()}_${firstname.substring(0, 1).toLowerCase()}.png`;
+    console.log(picture);
   } else {
     picture = `./img/${lastname.toLowerCase()}_${firstname.substring(0, 1).toLowerCase()}.png`;
-
-    return picture;
+    // console.log(picture);
   }
+  return picture;
 }
 
 function grabBlood(lastname, bloodStatus) {
@@ -323,11 +324,10 @@ function displayWizard(student) {
 
   //set clone data
   //TO DO: small image
-  // clone.querySelector("[data-field=picture] img").src = student.picture;
   clone.querySelector("[data-field=firstName]").textContent = student.firstname;
   clone.querySelector("[data-field=lastName]").textContent = student.lastname;
   clone.querySelector("[data-field=house]").textContent = student.house;
-
+  clone.querySelector("[data-field=picture] img").src = student.picture;
   // PREFECTS
   clone.querySelector("[data-field=prefect]").dataset.prefect = student.prefect;
   clone.querySelector("[data-field=prefect]").addEventListener("click", clickPrefect);
