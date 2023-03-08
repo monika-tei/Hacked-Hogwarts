@@ -2,7 +2,6 @@
 
 window.addEventListener("DOMContentLoaded", start);
 
-// new here
 const Student = {
   firstname: "",
   lastname: "",
@@ -16,7 +15,6 @@ const Student = {
   expelled: false,
 };
 
-// new
 const settings = {
   filter: "all",
   sortBy: "firstname",
@@ -32,7 +30,6 @@ function start() {
   findButtons();
 }
 
-// TO DO: Hack the system event listener
 function findButtons() {
   //Filter
   document.querySelectorAll("[data-action='filter']").forEach((button) => button.addEventListener("click", selectFilter));
@@ -40,8 +37,8 @@ function findButtons() {
   document.querySelectorAll("[data-action='sort']").forEach((button) => button.addEventListener("click", selectSort));
   //Search
   document.querySelector("#search-bar").addEventListener("input", searching);
-
   //Hack the system
+  document.querySelector("#enterthevoid").addEventListener("click", hackSystem);
 }
 
 // Load JSON files: student list and student bloodlines
@@ -52,7 +49,7 @@ async function grabJSON() {
   });
 }
 
-// TO DO: Find profile picture
+// General student details
 function handleStudentObjects(students, bloodStatus) {
   students.forEach((element) => {
     //create new student object
@@ -155,7 +152,6 @@ function grabHouse(house) {
   return house;
 }
 
-// TO DO: Continue here...
 function grabSelfie(firstname, lastname) {
   let picture;
 
@@ -310,11 +306,11 @@ function buildList() {
   displayList(sortedList);
 }
 
-//Searching
+//Searching-------------------------------------
 function searching() {
   // find the word
   const searchingFor = document.querySelector("#search-bar").value.toLowerCase();
-  console.log(`searching for ${searchingFor}`);
+  // console.log(`searching for ${searchingFor}`);
   const findSearchResult = allStudents.filter((student) => {
     return student.firstname.toLowerCase().includes(searchingFor) || student.lastname.toLowerCase().includes(searchingFor);
   });
@@ -331,17 +327,16 @@ function displayList(wizards) {
   // document.querySelector(#student_number or other ID).textContent = ` Number of student wizards: ${wizards.length}´
 }
 
-//TO DO: show less information - only first name & last name
+//TO DO: show less information - remove house
 function displayWizard(student) {
   //create clone
   const clone = document.querySelector("template#wizard").content.cloneNode(true);
 
   //set clone data
-  //TO DO: small image
   clone.querySelector("[data-field=firstName]").textContent = student.firstname;
   clone.querySelector("[data-field=lastName]").textContent = student.lastname;
   clone.querySelector("[data-field=house]").textContent = student.house;
-  clone.querySelector("[data-field=picture] img").src = student.picture;
+  // clone.querySelector("[data-field=picture] img").src = student.picture;
   // PREFECTS
   clone.querySelector("[data-field=prefect]").dataset.prefect = student.prefect;
   clone.querySelector("[data-field=prefect]").addEventListener("click", clickPrefect);
@@ -382,6 +377,10 @@ function displayWizard(student) {
 // To DO: Display wizard card pop-up
 function showWizardCard(student) {
   console.log("here will be a pop-up table with all student information ");
+  //show modal
+  const clone = document.querySelector("#wizard-modal").content.cloneNode(true);
+  modalPop.textContent = "";
+  //activate close button
   //student profile picture
   //first name
   //middle name
@@ -484,3 +483,9 @@ function notInquisitor() {
 }
 
 //To DO: About
+//To DO: Hacking
+function hackSystem() {
+  console.log("enter the void");
+  // document.querySelector("h1").classList.add("hackedFont");
+  // document.querySelector("body").classList.add("hacked");
+}

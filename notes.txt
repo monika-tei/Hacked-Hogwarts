@@ -1,21 +1,36 @@
 To Do's for my NEXT session:
-- Find student image;
-  _ Fix problems... Some don't have images, some have other pattern;
-- display small image in list
 
 
+- Make a sketch of how the card should look like
+- Wizard card
+  - image
+  - first name
+  - middle name
+  - last name
+  - nickname
+  - gender
+  - Blood status
+  - House crest (colors) as background
+
+
+- Wizard UI
+  - Close button
+  - Expel button
+  - Maybe(make prefect)
+  - Maybe(make inquisitor)
 
 
 
 
 GENERAL TO DO:
 
-- Find student image
-- Details pop-up
+- Details pop-up (Tuesday)
 - About
 - Expelling (from details card)
 - Ability to filter Expelled
-- Hacking (Tuesday)
+- Hacking
+
+
 - Styling (leave 2 days for this)
 - Documentation (leave 1 day for this)
   - Make a list of what is needed

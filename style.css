@@ -19,7 +19,10 @@
 }
 
 body {
-  background-color: lavender;
+  /* background-image: url(img/paper.jpg); */
+  /* background-color: peachpuff;
+  background-blend-mode: screen; */
+  background-size: contain;
 }
 
 h1 {
@@ -121,4 +124,19 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
   /* background-size: cover; */
   /* height: auto; */
   /* width: 5em; */
+}
+
+/*hacking the system*/
+
+.hacked {
+  background-image: url(img/crazy-bgr.png);
+  background-color: peachpuff;
+  background-blend-mode: difference;
+}
+
+/* linear-gradient(green, black) */
+
+.hackedFont {
+  font-family: var(--header-hacked-rubik-glitch);
+  color: black;
 }

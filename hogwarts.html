@@ -10,6 +10,7 @@
   <body>
     <header>
       <h1>Hacked Hogwarts Student List</h1>
+      <p id="enterthevoid">BOOP</p>
     </header>
     <main>
       <!--Search bar-->
@@ -39,6 +40,8 @@
           </span>
         </p>
       </div>
+
+      <div id="modal-pop"></div>
 
       <table id="wizardList">
         <thead>
@@ -83,7 +86,10 @@
       </template>
 
       <!-- insert wizard-card-modal in here, which will be the popup -->
-      <template id="wizard-modal"></template>
+      <template id="wizard-modal">
+        <div id="wizard-card"></div>
+        <div id="wizard-ui"></div>
+      </template>
 
       <!-------------------insert the pop-up dialog to remove A or B-->
       <div id="removeAorB" class="modal hide">
