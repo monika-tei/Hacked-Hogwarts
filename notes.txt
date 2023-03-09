@@ -1,21 +1,33 @@
 To Do's for my NEXT session:
 
 
-- Make a sketch of how the card should look like
-- Wizard card
-  - image
-  - first name
-  - middle name
-  - last name
-  - nickname
-  - gender
-  - Blood status
-  - House crest (colors) as background
+- Make a sketch of how the card should look like++
+- SETTING UP INFORMATION - Make it sure it works! then we style
+- Wizard card (issues - make sure to figure out the template and other stuff
+basically, where its supposed to appear and in what container)
+  - image ++
+  - first name++
+  - middle name++
+  - last name++
+  - nickname++
+  - gender ++
+  - Blood status ++
+  - Blood status img++
+  - No Blood img situation++
+  - Prefect Yes No ++
+  - Inquisitor Yes no ++
+
+
+  - House crest (colors) as background (TO DO)
+  - Decide where to place the card and sketch the general look outlines
+
+- STYLING THE card
+  - prepare background (To Do)
 
 
 - Wizard UI
-  - Close button
-  - Expel button
+  - Close button++
+  - Expel button++
   - Maybe(make prefect)
   - Maybe(make inquisitor)
 
@@ -24,11 +36,11 @@ To Do's for my NEXT session:
 
 GENERAL TO DO:
 
-- Details pop-up (Tuesday)
+- Details pop-up (Thursday)
 - About
 - Expelling (from details card)
 - Ability to filter Expelled
-- Hacking
+- Hacking: RANDOM BLOOD
 
 
 - Styling (leave 2 days for this)
