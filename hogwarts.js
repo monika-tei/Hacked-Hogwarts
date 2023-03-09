@@ -9,6 +9,7 @@ const Student = {
   nickname: "",
   picture: "",
   house: "",
+  gender: "",
   blood: "",
   prefect: false,
   inquisitor: false,
@@ -59,14 +60,16 @@ function handleStudentObjects(students, bloodStatus) {
     student.middlename = grabMiddleName(element.fullname);
     student.nickname = grabNickName(element.fullname);
     student.house = grabHouse(element.house);
+    student.gender = grabGender(element.gender);
     student.picture = grabSelfie(student.firstname, student.lastname);
     student.bloodStatus = grabBlood(student.lastname, bloodStatus);
     // TO DO:
     student.prefect = false;
     student.inquisitor = false;
-
+    student.expelled = false;
     allStudents.push(student);
   });
+
   displayList(allStudents);
 }
 
@@ -152,6 +155,13 @@ function grabHouse(house) {
   return house;
 }
 
+function grabGender(gender) {
+  gender = gender.trim();
+  gender = gender.charAt(0).toUpperCase() + gender.slice(1).toLowerCase();
+
+  return gender;
+}
+
 function grabSelfie(firstname, lastname) {
   let picture;
 
@@ -162,7 +172,6 @@ function grabSelfie(firstname, lastname) {
   } else if (firstname === "Justin") {
     lastname = lastname.split("-");
     picture = `./img/${lastname[1].toLowerCase()}_${firstname.substring(0, 1).toLowerCase()}.png`;
-    console.log(picture);
   } else {
     picture = `./img/${lastname.toLowerCase()}_${firstname.substring(0, 1).toLowerCase()}.png`;
     // console.log(picture);
@@ -321,10 +330,12 @@ function searching() {
 function displayList(wizards) {
   //clear the list:
   document.querySelector("#wizardList tbody").innerHTML = "";
+  //Testing
+  // document.querySelector("#modal-pop").innerHTML = "";
   //build a new list:
   wizards.forEach(displayWizard);
   //Show number of students:
-  // document.querySelector(#student_number or other ID).textContent = ` Number of student wizards: ${wizards.length}´
+  document.querySelector("#status-students").textContent = `There are currently ${wizards.length} Wizards`;
 }
 
 //TO DO: show less information - remove house
@@ -335,8 +346,11 @@ function displayWizard(student) {
   //set clone data
   clone.querySelector("[data-field=firstName]").textContent = student.firstname;
   clone.querySelector("[data-field=lastName]").textContent = student.lastname;
-  clone.querySelector("[data-field=house]").textContent = student.house;
   // clone.querySelector("[data-field=picture] img").src = student.picture;
+
+  // Make the button clickable to see more details
+  clone.querySelector("#btnView").addEventListener("click", () => showWizardCard(student));
+
   // PREFECTS
   clone.querySelector("[data-field=prefect]").dataset.prefect = student.prefect;
   clone.querySelector("[data-field=prefect]").addEventListener("click", clickPrefect);
@@ -367,40 +381,91 @@ function displayWizard(student) {
     buildList();
   }
 
-  // Make the button clickable to see more details
-  clone.querySelector("#btnView").addEventListener("click", () => showWizardCard(student));
-
   //inject to parent
   document.querySelector("#wizardList tbody").appendChild(clone);
 }
 
+//
+//
 // To DO: Display wizard card pop-up
 function showWizardCard(student) {
-  console.log("here will be a pop-up table with all student information ");
-  //show modal
-  const clone = document.querySelector("#wizard-modal").content.cloneNode(true);
-  modalPop.textContent = "";
-  //activate close button
+  modal.classList.remove("hide");
+
+  modal.textContent = "";
+  const clone = document.querySelector("template#wizard-modal").cloneNode(true).content;
+
+  // document.querySelector("#modal-pop").innerHTML = "";
+
+  //house text
+  clone.querySelector("#card-house-text").textContent = `${student.house}`;
+
+  //Blood text
+  clone.querySelector("#card-blood-text").textContent = `${student.bloodStatus}`;
+
+  //Blood img
+  if (student.bloodStatus === "Of Half Blood") {
+    clone.querySelector("#card-blood-img").src = `./img/blood-half.png`;
+  } else if (student.bloodStatus === "Of Pure Blood") {
+    clone.querySelector("#card-blood-img").src = `./img/blood-pure.png`;
+  } else if (student.bloodStatus === "Muggle-born mudblood!") {
+    clone.querySelector("#card-blood-img").src = `./img/blood-mud.png`;
+  } else {
+    clone.querySelector("#card-blood-img").src = `./img/blood-unknown.png`;
+  }
+
   //student profile picture
+  clone.querySelector("#card-pic").src = student.picture;
+
   //first name
-  //middle name
+  clone.querySelector("#card-firstname").textContent = `First name: ${student.firstname}`;
   //last name
+  clone.querySelector("#card-lastname").textContent = `Last name: ${student.lastname}`;
+  //middle name
+  clone.querySelector("#card-middlename").textContent = `Middle name: ${student.middlename}`;
   //nickname
+  clone.querySelector("#card-nickname").textContent = `Nickname: ${student.nickname}`;
   //gender
-  //blood status
-  //house
+  clone.querySelector("#card-gender").textContent = `Gender: ${student.gender}`;
 
-  //if student is prefect, write textContent yes/no
-  //if student is an inquisitor, write yes no
-  //if expel
+  // Card background
 
-  //UI to close the wizard card
+  // modal.style.background =
 
-  //append it to clone
-  //E.G. document.querySelector("body").appendChild(clone); // or whatever other name we come up with
+  //Prefects Inquisitors
+  if (student.prefect === true) {
+    clone.querySelector("#card-prefect").textContent = `Is a Prefect`;
+  } else {
+    clone.querySelector("#card-prefect").textContent = `Not a Prefect`;
+  }
+  if (student.inquisitor === true) {
+    clone.querySelector("#card-inquisitor").textContent = `Inquisitor: yes`;
+  } else {
+    clone.querySelector("#card-inquisitor").textContent = `Not Inquisitor`;
+  }
+
+  //Expel a student
+  clone.querySelector("#card-expel").addEventListener("click", clickExpel);
+
+  function clickExpel() {
+    if (student.firstname === "Monika") {
+      student.expelled = false;
+      cantExpelME();
+    } else {
+      student.expelled = true;
+      console.log("student was expelled");
+    }
+  }
+  //Close the card
+  clone.querySelector("#closebtn .closemodal").addEventListener("click", closeModal);
+
+  // append child
+  document.querySelector("main #modal").appendChild(clone);
 }
 
-// MAYBE TO DO: Gender rules (?)
+function cantExpelME() {
+  console.log("YOU CANT EXPEL ME");
+}
+
 function tryToMakePrefect(chosenStudent) {
   const prefect = allStudents.filter((student) => student.prefect);
   const sameHousePrefect = prefect.filter((student) => student.house === chosenStudent.house);
@@ -482,10 +547,40 @@ function notInquisitor() {
   }
 }
 
+// TO DO:
+function closeModal() {
+  console.log("closes the card view");
+  modal.classList.add("hide");
+}
+
 //To DO: About
+
 //To DO: Hacking
 function hackSystem() {
   console.log("enter the void");
   // document.querySelector("h1").classList.add("hackedFont");
   // document.querySelector("body").classList.add("hacked");
+
+  injectMyself();
+  // To DO:random blood
+  // Inq are changing every 0,5s
+}
+
+function injectMyself() {
+  console.log("injected");
+  const monika = {
+    firstname: "Monika",
+    lastname: "Tei",
+    middlename: "",
+    nickname: "Moni",
+    picture: "",
+    house: "Ravenclaw",
+    gender: "Girl",
+    blood: "Muggle-born mudblood!",
+    prefect: false,
+    inquisitor: false,
+    expelled: false,
+  };
+  allStudents.push(monika);
+  buildList();
 }

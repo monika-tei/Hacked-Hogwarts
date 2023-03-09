@@ -11,9 +11,13 @@
     <header>
       <h1>Hacked Hogwarts Student List</h1>
       <p id="enterthevoid">BOOP</p>
-    </header>
-    <main>
-      <!--Search bar-->
+
+      <ul id="status">
+        <li id="status-students">There are currently 0 wizards</li>
+        <li id="status-prefects">There are currently 0 Prefects</li>
+        <li id="status-inquisitors">There are currently 0 Inqusitors</li>
+      </ul>
+
       <div class="search-container">
         <form class="form">
           <input id="search-bar" type="text" class="input" placeholder="search wizard list..." />
@@ -40,9 +44,13 @@
           </span>
         </p>
       </div>
+    </header>
 
-      <div id="modal-pop"></div>
+    <!-- wizard card will be copied and inserted here -->
+    <!-- <div id="modal-pop"></div> -->
 
+    <main>
+      <!--WIZARD TABLE ON THE LEFT-->
       <table id="wizardList">
         <thead>
           <tr id="sorting">
@@ -56,42 +64,64 @@
 
             <th data-action="sort" data-sort-direction="asc" data-sort="lastname">Last Name</th>
 
-            <th data-action="sort" data-sort-direction="asc" data-sort="house">House</th>
             <th data-action="sort" data-sort-direction="asc" data-sort="details">Details</th>
           </tr>
         </thead>
         <tbody>
-          <!-- wizard template will be copied and inserted here -->
+          <!-- WIZARD  LIST TEMPLATE will be inserted here -->
         </tbody>
       </table>
 
-      <!-- this will be the template where we populate with created data -->
+      <div id="modal" class="modal"></div>
+
+      <!-- WIZARD  LIST TEMPLATE-->
       <template id="wizard">
         <tr>
           <td data-field="picture" class="picturebox-small">
             <img src="" alt="" />
           </td>
-
           <td data-field="prefect" data-prefect="false"></td>
           <td data-field="inquisitor" data-inquisitor="false"></td>
-
           <td data-field="firstName">First Name</td>
           <td data-field="lastName">Last Name</td>
-
-          <td data-field="house">House</td>
           <td><button id="btnView">View</button></td>
-
-          <!-- also needs a button to view -->
         </tr>
       </template>
 
-      <!-- insert wizard-card-modal in here, which will be the popup -->
+      <!-- WIZARD  MODAL TEMPLATE--><!-- removed class hide -->
       <template id="wizard-modal">
-        <div id="wizard-card"></div>
-        <div id="wizard-ui"></div>
+        <div id="dialog-card">
+          <div id="closebtn">
+            <button class="closemodal">X</button>
+          </div>
+          <div id="card-blood">
+            <h4 id="card-house-text"></h4>
+            <h4 id="card-blood-text">Test</h4>
+            <img id="card-blood-img" src="" alt="" />
+          </div>
+
+          <img id="card-pic" src="" alt="" />
+          <div id="card-details">
+            <ul>
+              <li id="card-firstname"></li>
+              <li id="card-lastname"></li>
+              <li id="card-middlename"></li>
+              <li id="card-nickname"></li>
+              <li id="card-gender"></li>
+              <li id="card-prefect"></li>
+              <li id="card-inquisitor"></li>
+            </ul>
+          </div>
+          <!-- put buttons up to be included in dialog-card -->
+          <div id="wizard-ui">
+            <button id="card-make-inquisitor">Make Inquisitor(?)</button>
+            <button id="card-make-prefect">Make Prefect(?)</button>
+            <button id="card-expel">Expell</button>
+          </div>
+        </div>
       </template>
 
-      <!-------------------insert the pop-up dialog to remove A or B-->
+      <!-------------------Remove A or B-->
       <div id="removeAorB" class="modal hide">
         <div class="prefect-dialog">
           <button class="closebutton">X</button>
