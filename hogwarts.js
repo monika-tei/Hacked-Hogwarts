@@ -330,8 +330,6 @@ function searching() {
 function displayList(wizards) {
   //clear the list:
   document.querySelector("#wizardList tbody").innerHTML = "";
-  //Testing
-  // document.querySelector("#modal-pop").innerHTML = "";
   //build a new list:
   wizards.forEach(displayWizard);
   //Show number of students:

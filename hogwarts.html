@@ -46,9 +46,6 @@
       </div>
     </header>
 
-    <!-- wizard card will be copied and inserted here -->
-    <!-- <div id="modal-pop"></div> -->
-
     <main>
       <!--WIZARD TABLE ON THE LEFT-->
       <table id="wizardList">
@@ -72,7 +69,7 @@
         </tbody>
       </table>
 
-      <div id="modal" class="modal"></div>
+      <div id="modal"></div>
 
       <!-- WIZARD  LIST TEMPLATE-->
       <template id="wizard">
@@ -100,7 +97,7 @@
             <img id="card-blood-img" src="" alt="" />
           </div>
 
-          <img id="card-pic" src="" alt="" />
+          <img id="card-pic" src="" alt="" class="modal-img" />
           <div id="card-details">
             <ul>
               <li id="card-firstname"></li>
@@ -114,15 +111,13 @@
           </div>
           <!-- put buttons up to be included in dialog-card -->
           <div id="wizard-ui">
-            <button id="card-make-inquisitor">Make Inquisitor(?)</button>
-            <button id="card-make-prefect">Make Prefect(?)</button>
             <button id="card-expel">Expell</button>
           </div>
         </div>
       </template>
 
       <!-------------------Remove A or B-->
-      <div id="removeAorB" class="modal hide">
+      <div id="removeAorB" class="dialog hide">
         <div class="prefect-dialog">
           <button class="closebutton">X</button>
           <h1>Attention!</h1>
@@ -142,7 +137,7 @@
       </div>
 
       <!-----------------Can't be made an INQ-->
-      <div id="nonInq" class="modal hide">
+      <div id="nonInq" class="dialog hide">
         <div class="inquisitor-dialog">
           <button class="closebutton">X</button>
           <h1>Muggle-born mudblood!</h1>

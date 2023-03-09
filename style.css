@@ -26,8 +26,11 @@ body {
   background-image: url(img/paper.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: auto;
 }
+/* size:auto */
+/* width: 100vw;
+height:100vh */
 
 h1,
 #status,
@@ -44,9 +47,10 @@ h1 {
   font-family: var(--header-gothic-font);
 }
 
+/* To Do: STYLE THE TABLE VIEW */
 table#wizardList {
-  width: 50vw;
-  background-color: lightcyan;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 thead {
@@ -90,20 +94,10 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
 
 /*Remove AorB*/
 
-.hide {
-  visibility: hidden;
-}
-
-.modal {
+.dialog {
   position: fixed;
-  top: 10%;
-  left: 50%;
-  width: 500px;
-  max-width: 80%;
-
-  /* width: 100vw;
-  height: 100vw; */
-  background-color: rgba(0, 0, 0, 0.4);
+  top: 25%;
+  left: 30%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -117,8 +111,6 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
   position: relative;
   background-image: url(img/pp.jpg);
   background-size: cover;
-  top: 10vw;
-  left: 0;
 }
 
 .closebutton {
@@ -141,41 +133,63 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
   background-color: aqua;
 }
 
+.hide {
+  visibility: hidden;
+}
+
 /*picture test*/
 .picturebox-small {
-  border: 1px solid hotpink;
-  /* background-size: cover; */
+  background-size: cover;
   /* height: auto; */
   /* width: 5em; */
 }
 
-/*-----------WIZARD CARD--------------*/
+/*-----------WIZARD MODAL CARD--------------*/
 
-.card-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  /*50vw*/
-  width: 100vw;
-  height: 100vw;
-  background-color: rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-/*this affects the look of the wizard card*/
-
+/* top: 10%;
+left: 30%; */
+/* background-image: url(./img/card-texture.jpg); */
+/* display: none; */
+/* flex-direction: row;
+align-items: center;
+justify-content: space-around; */
 #dialog-card {
-  box-shadow: 2px 1px 10px black;
-  border-radius: 5px;
-  padding: 2em;
-  position: absolute;
-  background-image: url(/card-texture.jpg);
-  top: 20vw;
-  left: 30%;
+  position: fixed;
+  top: 10%;
+  left: 50vw;
   width: max-content;
   height: auto;
+  background-color: darkgoldenrod;
+  z-index: 100;
+  filter: drop-shadow(10px 12px 10px black);
+  border-radius: 10px;
+  padding: 2em 1.5em 2em 1.5em;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.modal-img {
+  width: 10rem;
+  height: 10rem;
+  filter: drop-shadow(10px 12px 10px rgb(103, 100, 100));
+  margin: 1em 0em 1em 0em;
+}
+
+#card-details {
+  margin-bottom: 1em;
+  padding: 0.5em;
+  border-radius: 10pt;
+  line-height: 1.5em;
+  /* background: radial-gradient(circle, rgba(251, 74, 74, 1) 0%, rgba(210, 29, 29, 1) 35%, rgba(158, 16, 16, 1) 76%); */
+
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#card-details li {
+  font-family: var(--text-baskerville-bolder);
+  font-size: inherit;
+  color: black;
+  list-style-type: none;
 }
 
 #closebtn {
@@ -188,23 +202,19 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
   background-color: aquamarine;
   margin: 0;
 }
-#card-details {
-  padding: 0;
-  background-color: url(/card-texture.jpg);
-}
-
-#card-details li {
-  list-style-type: none;
-}
 
 /*House & Blood bar*/
 #card-blood {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 1em;
+  justify-content: space-around;
   align-items: center;
-  font-size: x-small;
+  font-size: smaller;
   margin: 0;
+  background-image: url(./img/card-texture.jpg);
+  background-blend-mode: darken;
+  background-size: cover;
   border: 1px solid black;
   padding: 0.5em;
   border-radius: 8pt;
@@ -215,8 +225,19 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
 }
 
 #card-blood-img {
-  width: 25px;
-  height: 25px;
+  width: 3em;
+  height: 3em;
+}
+
+#wizard-ui {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button#card-expel {
+  padding: 0 7em;
+  border-radius: 10pt;
 }
 
 /*hacking the system*/
