@@ -1,6 +1,18 @@
 To Do's for my NEXT session:
 
 
+
+
+
+To DO:
+- basic styling of the card
+- clean up the layout for the page
+- find general background image
+- find 4 school crest backgrounds
+
+
+
+
 - Make a sketch of how the card should look like++
 - SETTING UP INFORMATION - Make it sure it works! then we style
 - Wizard card (issues - make sure to figure out the template and other stuff

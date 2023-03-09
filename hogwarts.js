@@ -531,7 +531,7 @@ function tryToMakePrefect(chosenStudent) {
 }
 
 function notInquisitor() {
-  console.log(" student cannot join inquisitors");
+  console.log("student cannot join inquisitors");
 
   // Show popup, activate button
   document.querySelector("#nonInq").classList.remove("hide");
@@ -549,7 +549,7 @@ function notInquisitor() {
 
 // TO DO:
 function closeModal() {
-  console.log("closes the card view");
+  console.log("closes card view");
   modal.classList.add("hide");
 }
 
