@@ -427,6 +427,16 @@ function showWizardCard(student) {
 
   // Card background
 
+  if (student.house === "Gryffindor") {
+    clone.querySelector("#dialog-card").classList.add("house-g");
+  } else if (student.house === "Slytherin") {
+    clone.querySelector("#dialog-card").classList.add("house-s");
+  } else if (student.house === "Ravenclaw") {
+    clone.querySelector("#dialog-card").classList.add("house-r");
+  } else {
+    clone.querySelector("#dialog-card").classList.add("house-h");
+  }
+
   // modal.style.background =
 
   //Prefects Inquisitors
@@ -574,7 +584,7 @@ function injectMyself() {
     picture: "",
     house: "Ravenclaw",
     gender: "Girl",
-    blood: "Muggle-born mudblood!",
+    blood: "Of Pure Blood",
     prefect: false,
     inquisitor: false,
     expelled: false,

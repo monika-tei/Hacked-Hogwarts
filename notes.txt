@@ -8,7 +8,7 @@ To DO:
 - basic styling of the card
 - clean up the layout for the page
 - find general background image
-- find 4 school crest backgrounds
+- find 4 school crest backgrounds++
 - Add animation for both .dialog of how they appear: blink and zoom out from larger to smaller
 
 
