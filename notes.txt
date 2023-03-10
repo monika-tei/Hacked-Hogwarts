@@ -33,14 +33,10 @@ basically, where its supposed to appear and in what container)
   - No Blood img situation++
   - Prefect Yes No ++
   - Inquisitor Yes no ++
-
-
   - House crest (colors) as background (TO DO)++
   - Decide where to place the card and sketch the general look outlines++
-
-- STYLING THE card
+  - expel button styling
   - prepare background (To Do)++
-
 
 - Wizard UI
   - Close button++

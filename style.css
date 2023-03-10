@@ -155,7 +155,8 @@ align-items: center;
 justify-content: space-around; */
 #dialog-card {
   position: fixed;
-  top: 10%;
+  top: 0%;
+  /* top: 10%; */
   left: 50vw;
   /* width: max-content; */
   width: 400px;
@@ -276,8 +277,18 @@ justify-content: space-around; */
 }
 
 button#card-expel {
-  padding: 0 7em;
+  padding: 0.5em 7em;
   border-radius: 10pt;
+  border: none;
+  box-shadow: 1px -1px 20px black;
+  background-image: url(./img/pp.webp);
+  background-size: cover;
+}
+
+button#card-expel:hover {
+  background-image: url(./img/pp.webp);
+  background-color: grey;
+  background-blend-mode: multiply;
 }
 
 /*hacking the system*/
