@@ -1,4 +1,9 @@
 To Do's for my NEXT session:
+- animate how wizard card appears
+- animate how OBS cards appears
+- Expelling
+- filter Expelled
+- filter on hacked
 
 
 
@@ -6,7 +11,7 @@ To Do's for my NEXT session:
 
 To DO:
 - clean up the layout for the page
-- find general background image
+- find general background image++
 - find 4 school crest backgrounds++
 - Add animation for both .dialog of how they appear: blink and zoom out from larger to smaller
 
@@ -31,24 +36,22 @@ basically, where its supposed to appear and in what container)
 
 
   - House crest (colors) as background (TO DO)++
-  - Decide where to place the card and sketch the general look outlines
+  - Decide where to place the card and sketch the general look outlines++
 
 - STYLING THE card
-  - prepare background (To Do)
+  - prepare background (To Do)++
 
 
 - Wizard UI
   - Close button++
   - Expel button++
-  - Maybe(make prefect)
-  - Maybe(make inquisitor)
+  - Maybe(make prefect) nah
+  - Maybe(make inquisitor)nah
 
 
 
 
 GENERAL TO DO:
-
-- Details pop-up (Thursday)
 - About
 - Expelling (from details card)
 - Ability to filter Expelled

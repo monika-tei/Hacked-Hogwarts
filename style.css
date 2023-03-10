@@ -23,7 +23,7 @@
 }
 
 body {
-  background-image: url(img/bgr.png);
+  background-image: url(img/bgr.webp);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -109,7 +109,7 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
   border-radius: 5px;
   padding: 2em;
   position: relative;
-  background-image: url(img/pp.jpg);
+  background-image: url(img/pp.webp);
   background-size: cover;
 }
 
@@ -169,7 +169,7 @@ justify-content: space-around; */
 }
 
 .house-g {
-  background-image: url(./img/house-gryffindor.png);
+  background-image: url(./img/house-gryffindor.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: darkgoldenrod;
@@ -177,7 +177,7 @@ justify-content: space-around; */
 }
 
 .house-s {
-  background-image: url(./img/house-slytherin.png);
+  background-image: url(./img/house-slytherin.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: peachpuff;
@@ -185,7 +185,7 @@ justify-content: space-around; */
 }
 
 .house-r {
-  background-image: url(./img/house-ravenclaw.png);
+  background-image: url(./img/house-ravenclaw.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: lavenderblush;
@@ -193,7 +193,7 @@ justify-content: space-around; */
 }
 
 .house-h {
-  background-image: url(./img/house-hufflepuff.png);
+  background-image: url(./img/house-hufflepuff.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: burlywood;
@@ -244,7 +244,7 @@ justify-content: space-around; */
   align-items: center;
   font-size: smaller;
   margin: 0;
-  background-image: url(./img/card-texture.jpg);
+  background-image: url(./img/card-texture.webp);
   background-blend-mode: darken;
   background-size: cover;
   border: 1px solid black;
@@ -275,9 +275,9 @@ button#card-expel {
 /*hacking the system*/
 
 .hacked {
-  background-image: url(img/crazy-bgr.png);
-  background-color: peachpuff;
-  background-blend-mode: difference;
+  background-image: url(img/bgr.webp);
+  background-color: darkolivegreen;
+  background-blend-mode: color-burn;
 }
 
 /* linear-gradient(green, black) */
