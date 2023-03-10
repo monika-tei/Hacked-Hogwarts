@@ -5,7 +5,6 @@ To Do's for my NEXT session:
 
 
 To DO:
-- basic styling of the card
 - clean up the layout for the page
 - find general background image
 - find 4 school crest backgrounds++
@@ -31,7 +30,7 @@ basically, where its supposed to appear and in what container)
   - Inquisitor Yes no ++
 
 
-  - House crest (colors) as background (TO DO)
+  - House crest (colors) as background (TO DO)++
   - Decide where to place the card and sketch the general look outlines
 
 - STYLING THE card

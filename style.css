@@ -23,10 +23,10 @@
 }
 
 body {
-  background-image: url(img/paper.jpg);
+  background-image: url(img/bgr.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: auto;
+  background-size: cover;
 }
 /* size:auto */
 /* width: 100vw;
@@ -172,24 +172,32 @@ justify-content: space-around; */
   background-image: url(./img/house-gryffindor.png);
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: darkgoldenrod;
+  background-blend-mode: color-burn;
 }
 
 .house-s {
   background-image: url(./img/house-slytherin.png);
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: peachpuff;
+  background-blend-mode: multiply;
 }
 
 .house-r {
   background-image: url(./img/house-ravenclaw.png);
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: lavenderblush;
+  background-blend-mode: multiply;
 }
 
 .house-h {
   background-image: url(./img/house-hufflepuff.png);
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: burlywood;
+  background-blend-mode: multiply;
 }
 
 .modal-img {

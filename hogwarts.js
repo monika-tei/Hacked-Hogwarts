@@ -383,16 +383,13 @@ function displayWizard(student) {
   document.querySelector("#wizardList tbody").appendChild(clone);
 }
 
-//
-//
-// To DO: Display wizard card pop-up
+// TO DO: expel student
+// TD: img to center
 function showWizardCard(student) {
   modal.classList.remove("hide");
 
   modal.textContent = "";
   const clone = document.querySelector("template#wizard-modal").cloneNode(true).content;
-
-  // document.querySelector("#modal-pop").innerHTML = "";
 
   //house text
   clone.querySelector("#card-house-text").textContent = `${student.house}`;
@@ -436,8 +433,6 @@ function showWizardCard(student) {
   } else {
     clone.querySelector("#dialog-card").classList.add("house-h");
   }
-
-  // modal.style.background =
 
   //Prefects Inquisitors
   if (student.prefect === true) {
@@ -555,7 +550,6 @@ function notInquisitor() {
   }
 }
 
-// TO DO:
 function closeModal() {
   console.log("closes card view");
   modal.classList.add("hide");
@@ -581,10 +575,10 @@ function injectMyself() {
     lastname: "Tei",
     middlename: "",
     nickname: "Moni",
-    picture: "",
-    house: "Ravenclaw",
+    picture: `./img/me.png`,
+    house: "Gryffindor",
     gender: "Girl",
-    blood: "Of Pure Blood",
+    bloodStatus: "Muggle-born mudblood!",
     prefect: false,
     inquisitor: false,
     expelled: false,
