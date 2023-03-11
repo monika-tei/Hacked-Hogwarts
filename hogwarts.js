@@ -384,7 +384,7 @@ function displayWizard(student) {
 }
 
 // TO DO: expel student
-// TD: img to center
+//To DO: add animation, float up
 function showWizardCard(student) {
   modal.classList.remove("hide");
 
@@ -465,8 +465,11 @@ function showWizardCard(student) {
   document.querySelector("main #modal").appendChild(clone);
 }
 
+// TO DO: make it dramatic
 function cantExpelME() {
-  console.log("YOU CANT EXPEL ME");
+  // change text content on the button;
+  document.querySelector("#card-expel").textContent = "YOU CANT EXPEL ME";
+  document.querySelector("#card-expel").classList.add("beyondExpell");
 }
 
 function tryToMakePrefect(chosenStudent) {
@@ -555,9 +558,7 @@ function closeModal() {
   modal.classList.add("hide");
 }
 
-//To DO: About
-
-//To DO: Hacking
+// ENTER THE VOID
 function hackSystem() {
   console.log("enter the void");
   // document.querySelector("h1").classList.add("hackedFont");

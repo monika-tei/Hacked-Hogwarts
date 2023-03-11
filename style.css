@@ -291,6 +291,11 @@ button#card-expel:hover {
   background-blend-mode: multiply;
 }
 
+.beyondExpell {
+  color: black;
+  font-family: var(--header-hacked-rubik-burned);
+}
+
 /*hacking the system*/
 
 .hacked {
