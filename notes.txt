@@ -13,8 +13,8 @@ Hacking
 
 
   - you break the inquisitorial squad by removing students, shortly after the administrator has added them
-  set timeout - 0.5s inquisitor = false;
-  The blood-status is no longer thrustworthy. Former pure-bloods will get completely random blood-status, whereas half- and muggle-bloods will be listed as pure-blood. If you can randomly modify the former pure-bloods on every redisplay (sort or filter) of the list, the better!
+  set timeout - 0.5s inquisitor = false; ++
+  The blood-status is no longer thrustworthy. Former pure-bloods will get completely random blood-status, whereas half- and muggle-bloods will be listed as pure-blood. If you can randomly modify the former pure-bloods on every redisplay (sort or filter) of the list, the better! ++
 
   - Adding a student to the inquisitorial squad will only work for a limited time, before the student is automatically removed again. Preferably so the user notices that the student gets removed
   you mess up your pure-blood algorithm, so it is rather random whether a student is shown as pure-, half-, or muggle-blood  (math.Random *3);
@@ -27,6 +27,7 @@ GENERAL TO DO:
 - Expelling (from details card)
 - Ability to filter Expelled
 - Hacking: RANDOM BLOOD
+- Hacking: INQ++
 
 
 To DO:
@@ -34,6 +35,7 @@ To DO:
 - find general background image++
 - find 4 school crest backgrounds++
 - Add animation for both .dialog of how they appear: blink and zoom out from larger to smaller
+- Add animation for the expelling effects on click. spoopy;
 
 
 
@@ -55,7 +57,7 @@ basically, where its supposed to appear and in what container)
   - Inquisitor Yes no ++
   - House crest (colors) as background (TO DO)++
   - Decide where to place the card and sketch the general look outlines++
-  - expel button styling
+  - expel button styling ++
   - prepare background (To Do)++
 
 - Wizard UI
@@ -63,10 +65,6 @@ basically, where its supposed to appear and in what container)
   - Expel button++
   - Maybe(make prefect) nah
   - Maybe(make inquisitor)nah
-
-
-
-
 
 
 - Styling (leave 2 days for this)
@@ -90,12 +88,3 @@ Potentially Hacked font families
 
 https://fonts.google.com/specimen/Rubik+Iso?preview.text=Slytherin&preview.text_type=custom
 
-
-
-  <th
-              data-action="sort"
-              data-sort-direction="asc"
-              data-sort="prefect"
-            >
-              PRF
-            </th>

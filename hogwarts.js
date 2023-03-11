@@ -24,6 +24,7 @@ const settings = {
 
 // A very big array that stores each student as an object
 let allStudents = [];
+let expelledStudents = [];
 
 function start() {
   console.log("start");
@@ -180,7 +181,6 @@ function grabSelfie(firstname, lastname) {
 }
 
 function grabBlood(lastname, bloodStatus) {
-  //define 2 arrays and store the provided data
   let halfBloodFamily = bloodStatus.half;
   let pureBloodFamily = bloodStatus.pure;
   let bothBloods = pureBloodFamily.includes(lastname) && halfBloodFamily.includes(lastname);
@@ -371,6 +371,7 @@ function displayWizard(student) {
     console.log("clicked inquisitor");
     if (student.house === "Slytherin" && student.bloodStatus === "Of Pure Blood") {
       student.inquisitor = true;
+      messUpInquisitors();
     } else if (student.inquisitor === true) {
       student.inquisitor = false;
     } else {
@@ -564,8 +565,9 @@ function hackSystem() {
   // document.querySelector("body").classList.add("hacked");
 
   injectMyself();
+  messUpInquisitors();
+  bloodyMadness();
   // To DO:random blood
-  // Inq are changing every 0,5s
 }
 
 function injectMyself() {
@@ -575,7 +577,7 @@ function injectMyself() {
     lastname: "Tei",
     middlename: "",
     nickname: "Moni",
-    picture: `./img/me.png`,
+    picture: `./img/me.webp`,
     house: "Gryffindor",
     gender: "Girl",
     bloodStatus: "Muggle-born mudblood!",
@@ -585,4 +587,21 @@ function injectMyself() {
   };
   allStudents.push(monika);
   buildList();
+}
+
+function messUpInquisitors() {
+  console.log("stupid inquisitors");
+  allStudents.forEach((student) => {
+    if (student.inquisitor === true) {
+      setTimeout(() => {
+        student.inquisitor = false;
+
+        buildList();
+      }, 2500);
+    }
+  });
+}
+
+function bloodyMadness() {
+  console.log("every student receives a random bloodStatus");
 }
