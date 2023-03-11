@@ -14,9 +14,10 @@ Hacking
 
   - you break the inquisitorial squad by removing students, shortly after the administrator has added them
   set timeout - 0.5s inquisitor = false; ++
+
+
   The blood-status is no longer thrustworthy. Former pure-bloods will get completely random blood-status, whereas half- and muggle-bloods will be listed as pure-blood. If you can randomly modify the former pure-bloods on every redisplay (sort or filter) of the list, the better! ++
 
-  - Adding a student to the inquisitorial squad will only work for a limited time, before the student is automatically removed again. Preferably so the user notices that the student gets removed
   you mess up your pure-blood algorithm, so it is rather random whether a student is shown as pure-, half-, or muggle-blood  (math.Random *3);
   The user must be able to expel a student. You decide if the expelling should be done from the list, or from the "popup". Expelling removes a student from the list of students, and adds it to another list of expelled students. Once expelled, a student cannot return to the original list.
 
