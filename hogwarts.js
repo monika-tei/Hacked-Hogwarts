@@ -330,6 +330,16 @@ function searching() {
   displayList(findSearchResult);
 }
 
+function countExpelledStudents() {
+  let count = 0;
+  for (let i = 0; i < allStudents.length; i++) {
+    if (allStudents[i].expelled) {
+      count++;
+    }
+  }
+  return count;
+}
+
 //TO DO: show number of students
 function displayList(wizards) {
   //clear the list:
@@ -337,12 +347,10 @@ function displayList(wizards) {
   //build a new list:
   wizards.forEach(displayWizard);
   //Show number of students:
-  document.querySelector("#status-students").textContent = `There are currently ${wizards.length} Wizards`;
+  document.querySelector("#status-students").textContent = `Currently displayed: ${wizards.length} Wizards`;
 }
 
-//TO DO: show less information - remove house
 function displayWizard(student) {
-  //create clone
   const clone = document.querySelector("template#wizard").content.cloneNode(true);
 
   //set clone data
@@ -364,6 +372,9 @@ function displayWizard(student) {
       tryToMakePrefect(student);
     }
 
+    const prefectCount = allStudents.filter((student) => student.prefect === true).length;
+    document.querySelector("#status-prefects").textContent = `There are currently ${prefectCount} Prefects`;
+
     buildList();
   }
 
@@ -381,6 +392,10 @@ function displayWizard(student) {
     } else {
       notInquisitor();
     }
+
+    const inquisitorCount = allStudents.filter((student) => student.inquisitor === true).length;
+    document.querySelector("#status-inquisitors").textContent = `There are currently ${inquisitorCount} Inqusitors`;
+
     buildList();
   }
 
@@ -438,12 +453,24 @@ function showWizardCard(student) {
     clone.querySelector("#dialog-card").classList.add("house-h");
   }
 
-  //Prefects Inquisitors
+  //Prefects
+
   if (student.prefect === true) {
     clone.querySelector("#card-prefect").textContent = `Is a Prefect`;
   } else {
     clone.querySelector("#card-prefect").textContent = `Not a Prefect`;
   }
+
+  // if (student.prefect === true) {
+  //   clone.querySelector("#card-prefect").textContent = `Is a Prefect`;
+  //   prefectCount++;
+  //   console.log(prefectCount);
+  // } else {
+  //   clone.querySelector("#card-prefect").textContent = `Not a Prefect`;
+  // }
+  // document.querySelector("#status-prefects").textContent = `There are currently ${prefectCount} Prefects`;
+
+  //Inquisitors
   if (student.inquisitor === true) {
     clone.querySelector("#card-inquisitor").textContent = `Inquisitor: yes`;
   } else {
@@ -464,9 +491,10 @@ function showWizardCard(student) {
         element.style.backgroundColor = "grey";
         element.style.backgroundBlendMode = "luminosity";
       });
-
-      console.log("blacklisted");
     }
+    const expelledCount = countExpelledStudents();
+    document.querySelector("#status-expelled").textContent = `There are currently ${expelledCount} expelled Wizards`;
+
     buildList();
   }
   //Close the card
