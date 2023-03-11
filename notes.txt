@@ -3,41 +3,25 @@ To Do's for my NEXT session:
 - animate how OBS cards appears
 - style the table view (something simple)
 - decide whether we need images in table view
-- Expelling
-- filter Expelled
-- filter on hacked
-
-Hacking
-- make sure that you can't be expelled by the administrator
-- display those letters spoopily on the screen (fade in and out?)
-
-
-  - you break the inquisitorial squad by removing students, shortly after the administrator has added them
-  set timeout - 0.5s inquisitor = false; ++
-
-
-  The blood-status is no longer thrustworthy. Former pure-bloods will get completely random blood-status, whereas half- and muggle-bloods will be listed as pure-blood. If you can randomly modify the former pure-bloods on every redisplay (sort or filter) of the list, the better! ++
-
-
-  The user must be able to expel a student. You decide if the expelling should be done from the list, or from the "popup". Expelling removes a student from the list of students, and adds it to another list of expelled students. Once expelled, a student cannot return to the original list.
 
 
 
 GENERAL TO DO:
-- About
-- Expelling (from details card)
-- Ability to filter Expelled
-- clean up the layout for the page
-- find general background image++
-- find 4 school crest backgrounds++
 - Add animation for both .dialog of how they appear: blink and zoom out from larger to smaller
 - Add animation for the expelling effects on click. spoopy;
+- About
+- clean up the layout for the page
 
+
+- Expelling (from details card)++
+- Ability to filter Expelled++
+- find general background image++
+- find 4 school crest backgrounds++
+- add grey filter for expelled person card++
 
 
 
 - Make a sketch of how the card should look like++
-- SETTING UP INFORMATION - Make it sure it works! then we style
 - Wizard card (issues - make sure to figure out the template and other stuff
 basically, where its supposed to appear and in what container)
   - image ++
@@ -59,8 +43,6 @@ basically, where its supposed to appear and in what container)
 - Wizard UI
   - Close button++
   - Expel button++
-  - Maybe(make prefect) nah
-  - Maybe(make inquisitor)nah
 
 
 - Styling (leave 2 days for this)

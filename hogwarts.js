@@ -25,6 +25,7 @@ const settings = {
 // A very big array that stores each student as an object
 let allStudents = [];
 let expelledStudents = [];
+let computerVirus = false;
 
 function start() {
   console.log("start");
@@ -228,7 +229,10 @@ function filterList(filteredList) {
     filteredList = allStudents.filter(isPrefect);
   } else if (settings.filterBy === "inquisitor") {
     filteredList = allStudents.filter(isInqSqd);
+  } else if (settings.filterBy === "expelled") {
+    filteredList = allStudents.filter(isExpelled);
   }
+
   return filteredList;
 }
 
@@ -309,6 +313,7 @@ function sortList(sortedList) {
 }
 
 function buildList() {
+  allStudents.filter((student) => student.expelled === false);
   const currentList = filterList(allStudents);
   const sortedList = sortList(currentList);
   displayList(sortedList);
@@ -383,7 +388,6 @@ function displayWizard(student) {
   document.querySelector("#wizardList tbody").appendChild(clone);
 }
 
-// TO DO: expel student
 //To DO: add animation, float up
 function showWizardCard(student) {
   modal.classList.remove("hide");
@@ -455,8 +459,15 @@ function showWizardCard(student) {
       cantExpelME();
     } else {
       student.expelled = true;
-      console.log("student was expelled");
+      document.querySelector("#card-expel").textContent = "EXPELLED";
+      document.querySelectorAll("#dialog-card, #card-blood").forEach((element) => {
+        element.style.backgroundColor = "grey";
+        element.style.backgroundBlendMode = "luminosity";
+      });
+
+      console.log("blacklisted");
     }
+    buildList();
   }
   //Close the card
   clone.querySelector("#closebtn .closemodal").addEventListener("click", closeModal);
@@ -561,12 +572,12 @@ function closeModal() {
 // ENTER THE VOID
 function hackSystem() {
   console.log("enter the void");
+  computerVirus = true;
   // document.querySelector("h1").classList.add("hackedFont");
   // document.querySelector("body").classList.add("hacked");
 
   injectMyself();
   messUpInquisitors();
-  // To DO:random blood
   bloodyMadness();
 }
 
