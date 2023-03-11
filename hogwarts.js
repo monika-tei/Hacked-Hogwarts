@@ -64,7 +64,6 @@ function handleStudentObjects(students, bloodStatus) {
     student.gender = grabGender(element.gender);
     student.picture = grabSelfie(student.firstname, student.lastname);
     student.bloodStatus = grabBlood(student.lastname, bloodStatus);
-    // TO DO:
     student.prefect = false;
     student.inquisitor = false;
     student.expelled = false;
@@ -185,8 +184,8 @@ function grabBlood(lastname, bloodStatus) {
   let pureBloodFamily = bloodStatus.pure;
   let bothBloods = pureBloodFamily.includes(lastname) && halfBloodFamily.includes(lastname);
 
-  // edge cases with no lastname or no blood type
-  // edge cases with double blood
+  // edge cases with no lastname or no blood type++
+  // edge cases with double blood++ to half...
   // 1. Abbott is both pure and half
   // 2. Potter is both pure and half
   // 3. Bullstrode is both pure and half
@@ -566,8 +565,8 @@ function hackSystem() {
 
   injectMyself();
   messUpInquisitors();
-  bloodyMadness();
   // To DO:random blood
+  bloodyMadness();
 }
 
 function injectMyself() {
@@ -590,7 +589,6 @@ function injectMyself() {
 }
 
 function messUpInquisitors() {
-  console.log("stupid inquisitors");
   allStudents.forEach((student) => {
     if (student.inquisitor === true) {
       setTimeout(() => {
@@ -603,5 +601,20 @@ function messUpInquisitors() {
 }
 
 function bloodyMadness() {
-  console.log("every student receives a random bloodStatus");
+  // Define an array of possible blood statuses
+  const bloodStatuses = ["Of Pure Blood", "Of Half Blood", "Muggle-born mudblood!"];
+
+  // Loop through all the students
+  allStudents.forEach((student) => {
+    // If the student is a former pure-blood, randomly assign a new blood status
+    if (student.bloodStatus === "Of Pure Blood") {
+      student.bloodStatus = bloodStatuses[Math.floor(Math.random() * bloodStatuses.length)];
+    }
+    // If the student is not a former pure-blood, set their blood status to "Of Pure Blood"
+    else {
+      student.bloodStatus = "Of Pure Blood";
+    }
+  });
+
+  buildList();
 }

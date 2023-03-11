@@ -18,7 +18,7 @@ Hacking
 
   The blood-status is no longer thrustworthy. Former pure-bloods will get completely random blood-status, whereas half- and muggle-bloods will be listed as pure-blood. If you can randomly modify the former pure-bloods on every redisplay (sort or filter) of the list, the better! ++
 
-  you mess up your pure-blood algorithm, so it is rather random whether a student is shown as pure-, half-, or muggle-blood  (math.Random *3);
+
   The user must be able to expel a student. You decide if the expelling should be done from the list, or from the "popup". Expelling removes a student from the list of students, and adds it to another list of expelled students. Once expelled, a student cannot return to the original list.
 
 
@@ -27,11 +27,6 @@ GENERAL TO DO:
 - About
 - Expelling (from details card)
 - Ability to filter Expelled
-- Hacking: RANDOM BLOOD
-- Hacking: INQ++
-
-
-To DO:
 - clean up the layout for the page
 - find general background image++
 - find 4 school crest backgrounds++
