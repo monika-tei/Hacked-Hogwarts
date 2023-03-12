@@ -1,7 +1,11 @@
 To Do's for my NEXT session:
+- style the table view (something simple)
+- padding for the list items
+- padding for the view buttons
+- style the hacking. maybe I should make it into big button idk. or some funny eye looking thing
+
 - animate how wizard card appears
 - animate how OBS cards appears
-- style the table view (something simple)
 - decide whether we need images in table view
 
 
