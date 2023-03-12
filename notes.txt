@@ -1,4 +1,9 @@
 To Do's for my NEXT session:
+
+Remove A & B  button styling
+
+
+
 - style the table view (something simple)
 - padding for the list items
 - padding for the view buttons

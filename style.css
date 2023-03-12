@@ -1,3 +1,5 @@
+@import url("https://www.fontsquirrel.com/fonts/bluu-next");
+
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
@@ -7,7 +9,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
 
 :root {
-  --header-gothic-font: Bluu next;
+  --header-font: "Bluu Next Titling";
   --text-cormorant-leaner: "Cormorant Garamond", serif;
   --text-baskerville-bolder: "Libre Baskerville", serif;
   --header-hacked-rubik-burned: "Rubik Burned", cursive;
@@ -28,10 +30,6 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
-/* size:auto */
-/* width: 100vw;
-height:100vh */
-
 /* header {
     position: sticky;
     top: 0;
@@ -46,22 +44,97 @@ h1,
   padding-bottom: 1em;
 }
 
+/* trying something out */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: url(./img/bgr.webp);
   padding-bottom: 2em;
 }
 
 h1 {
+  margin-left: 2em;
   font-family: var(--header-gothic-font);
+}
+
+/*Search container*/
+.search-container {
+  margin-left: 2em;
+}
+
+#status {
+  margin-left: 2em;
+  list-style-type: none;
+}
+
+input#search-bar {
+  padding: 0.4em 3em;
+  border-radius: 7pt;
+  border: 1px solid grey;
+  font-style: italic;
+  font-weight: 600;
+}
+
+#clear {
+  padding: 0.3em 1em;
+  border-radius: 7pt;
+  border: 1px solid grey;
+}
+
+/*Filter container*/
+#filterBtnContainer {
+  margin-left: 2em;
+  padding: 1em 0em;
+  /* background-color: hotpink; */
+}
+
+#filterBtnContainer * {
+  font-family: var(--text-baskerville-bolder);
+  font-weight: 400;
+}
+
+#filterBtnContainer button {
+  padding: 0.3em 2em;
+  border: 1px solid grey;
+  border-radius: 7pt;
+  margin-left: 0.5em;
+  box-shadow: 1px 1px 10px darkviolet;
+}
+
+#filterBtnContainer button:hover {
+  font-weight: bold;
+  color: black;
+  background-color: transparent;
+  background-blend-mode: color-burn;
 }
 
 /* To Do: STYLE THE TABLE VIEW */
 table#wizardList {
-  width: 50%;
+  width: 55%;
   background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10pt;
+  padding: 1em;
+  margin-left: 2em;
 }
 
-thead {
+tr#sorting {
   font-family: var(--header-gothic-font);
+}
+
+#table-body td {
+  color: black;
+  padding: 0.2em 1em;
+  font-family: var(--text-baskerville-bolder);
+}
+
+button#btnView {
+  padding: 0.3em 1em;
+  border-radius: 7pt;
+  border: 1px solid grey;
+  font-family: var(--text-baskerville-bolder);
 }
 
 /* PREFECT */
@@ -90,7 +163,6 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
 }
 
 /* showing a smybol next to Sort */
-
 #sorting th.sortBy[data-sort-direction="asc"]::after {
   content: "↑";
 }
@@ -126,8 +198,6 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
   right: 0.4em;
   background: none;
   border: none;
-  /* width: 2em;
-  height: 2em; */
 }
 
 .prefect-dialog h1,
@@ -136,15 +206,35 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
   font-family: var(--header-gothic-font);
 }
 
-#removeA {
-  background-color: aqua;
+.sidebyside {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5em;
+  justify-content: space-evenly;
+}
+
+button#removeA,
+button#removeB {
+  padding: 0.5em 2em;
+  border-radius: 10pt;
+  border: none;
+  box-shadow: 1px -1px 10px black;
+  background-image: url(./img/pp.webp);
+  background-size: cover;
+  margin-top: 1em;
+  font-weight: 600;
+}
+
+.hover {
+  background-color: darkviolet;
+  background-blend-mode: lighten;
 }
 
 .hide {
   visibility: hidden;
 }
 
-/*picture test*/
+/*picture test -  removed the imaGE IN GENERAL*/
 .picturebox-small {
   background-size: cover;
   /* height: auto; */
@@ -152,14 +242,9 @@ td[data-field="inquisitor"][data-inquisitor="false"]::after {
 }
 
 /*-----------WIZARD MODAL CARD--------------*/
-
-/* top: 10%;
-left: 30%; */
-/* background-image: url(./img/card-texture.jpg); */
 #dialog-card {
   position: fixed;
-  top: 0%;
-  /* top: 10%; */
+  top: 5%;
   left: 50vw;
   /* width: max-content; */
   width: 400px;
@@ -170,6 +255,34 @@ left: 30%; */
   padding: 2em 1.5em 2em 1.5em;
   align-items: center;
   justify-content: space-around;
+  animation: fadeInUp 1s ease backwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translate(0px, 50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px, 0);
+    opacity: 1;
+  }
+}
+
+/*Something is not working but no time for this right now*/
+.close-fade-down {
+  animation: fade-out-down 1s ease 0.5s forwards;
+}
+
+@keyframes fade-out-down {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 }
 
 .house-g {
@@ -184,7 +297,7 @@ left: 30%; */
   background-image: url(./img/house-slytherin.webp);
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: peachpuff;
+  background-color: lightgray;
   background-blend-mode: multiply;
 }
 
@@ -219,15 +332,19 @@ left: 30%; */
   color: black;
   list-style-type: none;
 }
-
+/*TO DO: BUTTON*/
 #closebtn {
   display: flex;
   flex-direction: row-reverse;
+  margin-bottom: 0.5em;
 }
 
+/*TO DO: BUTTON*/
 .closemodal {
   border: none;
-  background-color: aquamarine;
+  border-radius: 4pt;
+  padding: 0.3em 0.5em;
+
   margin: 0;
 }
 
@@ -286,6 +403,7 @@ button#card-expel {
   box-shadow: 1px -1px 20px black;
   background-image: url(./img/pp.webp);
   background-size: cover;
+  font-weight: bold;
 }
 
 button#card-expel:hover {
@@ -301,15 +419,39 @@ button#card-expel:hover {
 
 /*hacking the system*/
 
+#enterthevoid {
+  position: fixed;
+  right: 5%;
+  top: 81%;
+  width: 70px;
+  height: 71px;
+  background-image: url(./img/boop.webp);
+  background-size: cover;
+  animation: circle 5s linear infinite;
+}
+
+@keyframes circle {
+  from {
+    transform: rotate(0deg) translateX(60px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(60px) rotate(-360deg);
+  }
+}
+
 .hacked {
   background-image: url(img/bgr.webp);
   background-color: darkolivegreen;
   background-blend-mode: color-burn;
 }
 
-/* linear-gradient(green, black) */
-
 .hackedFont {
   font-family: var(--header-hacked-rubik-glitch);
-  color: black;
+  color: grey;
+  font-size: 27pt;
+  text-shadow: 1px 10px 10px darkviolet;
+}
+
+.hacked-text {
+  color: lightgray;
 }

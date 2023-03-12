@@ -8,9 +8,8 @@
     <title>The Hacked Hogwarts Student List</title>
   </head>
   <body>
-    <header>
+    <header id="top">
       <h1>Hacked Hogwarts Student List</h1>
-      <p id="enterthevoid">BOOP</p>
 
       <ul id="status">
         <li id="status-students">Currently displayed: 0 wizards</li>
@@ -21,48 +20,87 @@
 
       <div class="search-container">
         <form class="form">
-          <input id="search-bar" type="text" class="input" placeholder="search wizard list..." />
+          <input
+            id="search-bar"
+            type="text"
+            class="input"
+            placeholder="Search wizard list..."
+          />
           <button id="clear" class="clear-search">clear</button>
         </form>
       </div>
 
       <div id="filterBtnContainer">
-        <p>
+        <p id="filter-p">
           Filter By:
           <span>
-            <button id="btnG" data-action="filter" data-filter="gryffindor">Gryffindor</button>
+            <button id="btnG" data-action="filter" data-filter="gryffindor">
+              Gryffindor
+            </button>
 
-            <button id="btnH" data-action="filter" data-filter="hufflepuff">Hufflepuff</button>
+            <button id="btnH" data-action="filter" data-filter="hufflepuff">
+              Hufflepuff
+            </button>
 
-            <button id="btnR" data-action="filter" data-filter="ravenclaw">Ravenclaw</button>
+            <button id="btnR" data-action="filter" data-filter="ravenclaw">
+              Ravenclaw
+            </button>
 
-            <button id="btnS" data-action="filter" data-filter="slytherin">Slytherin</button>
+            <button id="btnS" data-action="filter" data-filter="slytherin">
+              Slytherin
+            </button>
 
-            <button id="btnPref" data-action="filter" data-filter="prefect">Prefects</button>
-            <button id="btnInq" data-action="filter" data-filter="inquisitor">Inq-Squad</button>
-            <button id="btnExp" data-action="filter" data-filter="expelled">Expelled</button>
-            <button id="btnAll" data-action="filter" data-filter="*">All</button>
+            <button id="btnPref" data-action="filter" data-filter="prefect">
+              Prefects
+            </button>
+            <button id="btnInq" data-action="filter" data-filter="inquisitor">
+              Inq-Squad
+            </button>
+            <button id="btnExp" data-action="filter" data-filter="expelled">
+              Expelled
+            </button>
+            <button id="btnAll" data-action="filter" data-filter="*">
+              All
+            </button>
           </span>
         </p>
       </div>
     </header>
 
-    <main>
+    <main id="content">
       <!--WIZARD TABLE ON THE LEFT-->
       <table id="wizardList">
-        <thead>
-          <tr id="sorting">
+        <thead id="table-head">
+          <!-- <tr id="sorting">
             <th id="img">
-              <img src="" alt="" />
+              <img src="" alt="" /> -->
             </th>
             <th>PRF</th>
 
             <th>INQ</th>
-            <th data-action="sort" data-sort-direction="asc" data-sort="firstname">First Name</th>
+            <th
+              data-action="sort"
+              data-sort-direction="asc"
+              data-sort="firstname"
+            >
+              First Name
+            </th>
 
-            <th data-action="sort" data-sort-direction="asc" data-sort="lastname">Last Name</th>
+            <th
+              data-action="sort"
+              data-sort-direction="asc"
+              data-sort="lastname"
+            >
+              Last Name
+            </th>
 
-            <th data-action="sort" data-sort-direction="asc" data-sort="details">Details</th>
+            <th
+              data-action="sort"
+              data-sort-direction="asc"
+              data-sort="details"
+            >
+              Details
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -74,10 +112,10 @@
 
       <!-- WIZARD  LIST TEMPLATE-->
       <template id="wizard">
-        <tr>
-          <td data-field="picture" class="picturebox-small">
+        <tr id="table-body">
+          <!-- <td data-field="picture" class="picturebox-small">
             <img src="" alt="" />
-          </td>
+          </td> -->
           <td data-field="prefect" data-prefect="false"></td>
           <td data-field="inquisitor" data-inquisitor="false"></td>
           <td data-field="firstName">First Name</td>
@@ -90,7 +128,7 @@
       <template id="wizard-modal">
         <div id="dialog-card">
           <div id="closebtn">
-            <button class="closemodal">X</button>
+            <button class="closemodal">✖</button>
           </div>
           <div id="card-blood">
             <h4 id="card-house-text"></h4>
@@ -113,7 +151,7 @@
           </div>
           <!-- put buttons up to be included in dialog-card -->
           <div id="wizard-ui">
-            <button id="card-expel">Expell</button>
+            <button id="card-expel">Expel Student</button>
           </div>
         </div>
       </template>
@@ -149,6 +187,8 @@
           </p>
         </div>
       </div>
+
+      <div id="enterthevoid"></div>
     </main>
     <script src="hogwarts.js"></script>
   </body>

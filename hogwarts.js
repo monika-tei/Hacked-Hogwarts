@@ -340,7 +340,6 @@ function countExpelledStudents() {
   return count;
 }
 
-//TO DO: show number of students
 function displayList(wizards) {
   //clear the list:
   document.querySelector("#wizardList tbody").innerHTML = "";
@@ -350,12 +349,14 @@ function displayList(wizards) {
   document.querySelector("#status-students").textContent = `Currently displayed: ${wizards.length} Wizards`;
 }
 
+//hiding the picture in the table
 function displayWizard(student) {
   const clone = document.querySelector("template#wizard").content.cloneNode(true);
 
   //set clone data
   clone.querySelector("[data-field=firstName]").textContent = student.firstname;
   clone.querySelector("[data-field=lastName]").textContent = student.lastname;
+  // hidden
   // clone.querySelector("[data-field=picture] img").src = student.picture;
 
   // Make the button clickable to see more details
@@ -418,13 +419,13 @@ function showWizardCard(student) {
 
   //Blood img
   if (student.bloodStatus === "Of Half Blood") {
-    clone.querySelector("#card-blood-img").src = `./img/blood-half.png`;
+    clone.querySelector("#card-blood-img").src = `./img/blood-half.webp`;
   } else if (student.bloodStatus === "Of Pure Blood") {
-    clone.querySelector("#card-blood-img").src = `./img/blood-pure.png`;
+    clone.querySelector("#card-blood-img").src = `./img/blood-pure.webp`;
   } else if (student.bloodStatus === "Muggle-born mudblood!") {
-    clone.querySelector("#card-blood-img").src = `./img/blood-mud.png`;
+    clone.querySelector("#card-blood-img").src = `./img/blood-mud.webp`;
   } else {
-    clone.querySelector("#card-blood-img").src = `./img/blood-unknown.png`;
+    clone.querySelector("#card-blood-img").src = `./img/blood-unknown.webp`;
   }
 
   //student profile picture
@@ -461,15 +462,6 @@ function showWizardCard(student) {
     clone.querySelector("#card-prefect").textContent = `Not a Prefect`;
   }
 
-  // if (student.prefect === true) {
-  //   clone.querySelector("#card-prefect").textContent = `Is a Prefect`;
-  //   prefectCount++;
-  //   console.log(prefectCount);
-  // } else {
-  //   clone.querySelector("#card-prefect").textContent = `Not a Prefect`;
-  // }
-  // document.querySelector("#status-prefects").textContent = `There are currently ${prefectCount} Prefects`;
-
   //Inquisitors
   if (student.inquisitor === true) {
     clone.querySelector("#card-inquisitor").textContent = `Inquisitor: yes`;
@@ -486,11 +478,14 @@ function showWizardCard(student) {
       cantExpelME();
     } else {
       student.expelled = true;
+
       document.querySelector("#card-expel").textContent = "EXPELLED";
       document.querySelectorAll("#dialog-card, #card-blood").forEach((element) => {
         element.style.backgroundColor = "grey";
         element.style.backgroundBlendMode = "luminosity";
       });
+      student.prefect = false;
+      student.inquisitor = false;
     }
     const expelledCount = countExpelledStudents();
     document.querySelector("#status-expelled").textContent = `There are currently ${expelledCount} expelled Wizards`;
@@ -504,7 +499,6 @@ function showWizardCard(student) {
   document.querySelector("main #modal").appendChild(clone);
 }
 
-// TO DO: make it dramatic
 function cantExpelME() {
   // change text content on the button;
   document.querySelector("#card-expel").textContent = "YOU CANT EXPEL ME";
@@ -525,14 +519,28 @@ function tryToMakePrefect(chosenStudent) {
 
   function removeAorB(prefectA, prefectB) {
     console.log("there can only be 2 prefects");
+    // testing
+    const buttons = document.querySelectorAll(".sidebyside button");
+
+    buttons.forEach((button) => {
+      button.addEventListener("mouseenter", () => {
+        button.classList.add("hover");
+      });
+      button.addEventListener("mouseleave", () => {
+        button.classList.remove("hover");
+      });
+    });
 
     // show dialog popup
     document.querySelector("#removeAorB").classList.remove("hide");
+
     // activate close btn, remove A and remove B buttons;
     document.querySelector("#removeAorB .closebutton").addEventListener("click", closeDialog);
+
+    //choose to remove A or B
     document.querySelector("#removeAorB #removeA").addEventListener("click", removeA);
     document.querySelector("#removeAorB #removeB").addEventListener("click", removeB);
-    // show prefect initials on buttons
+
     document.querySelector("#removeAorB [data-field=prefectA]").textContent = `${prefectA.firstname} ${prefectA.lastname}`;
     document.querySelector("#removeAorB [data-field=prefectB]").textContent = `${prefectB.firstname} ${prefectB.lastname}`;
 
@@ -593,7 +601,6 @@ function notInquisitor() {
 }
 
 function closeModal() {
-  console.log("closes card view");
   modal.classList.add("hide");
 }
 
@@ -601,8 +608,10 @@ function closeModal() {
 function hackSystem() {
   console.log("enter the void");
   computerVirus = true;
-  // document.querySelector("h1").classList.add("hackedFont");
-  // document.querySelector("body").classList.add("hacked");
+  document.querySelector("h1").classList.add("hackedFont");
+  document.querySelectorAll("status, li, p#filter-p").forEach((el) => el.classList.add("hacked-text"));
+
+  document.querySelectorAll("body, header").forEach((el) => el.classList.add("hacked"));
 
   injectMyself();
   messUpInquisitors();
@@ -658,3 +667,7 @@ function bloodyMadness() {
 
   buildList();
 }
+
+const header = document.querySelector("header");
+const main = document.querySelector("main");
+main.style.paddingTop = header.offsetHeight + "px";
