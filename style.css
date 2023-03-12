@@ -37,11 +37,13 @@ body {
   background-color: #ffffff; /* Replace with your desired background color 
   z-index: 1; /* Make sure the header is on top of the table }*/
 
-h1,
+h1 {
+  padding-bottom: 0.3em;
+}
 #status,
 .search-container,
 #filterBtnContainer {
-  padding-bottom: 1em;
+  padding-bottom: 0.7em;
 }
 
 /* trying something out */
@@ -52,6 +54,7 @@ header {
   width: 100%;
   z-index: 100;
   background: url(./img/bgr.webp);
+  background-size: cover;
   padding-bottom: 2em;
 }
 
