@@ -1,9 +1,6 @@
 To Do's for my NEXT session:
 
-Remove A & B  button styling
-
-
-
+- Remove A & B  button styling
 - style the table view (something simple)
 - padding for the list items
 - padding for the view buttons
@@ -54,10 +51,6 @@ basically, where its supposed to appear and in what container)
   - Expel button++
 
 
-- Styling (leave 2 days for this)
-- Documentation (leave 1 day for this)
-  - Make a list of what is needed
-  - For the coming 5 days: document a little something
 
 
 
